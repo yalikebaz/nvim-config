@@ -151,15 +151,15 @@ local mappings = {
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {
-      "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+      "<cmd>lua vim.diagnostic.goto_next()<CR>",
       "Next Diagnostic",
     },
     k = {
-      "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+      "<cmd>lua vim.diagnostic.goto_prev()<cr>",
       "Prev Diagnostic",
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+    q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
@@ -183,11 +183,12 @@ local mappings = {
     name = "Terminal",
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+    -- t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
     p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+    t = { "<cmd>ToggleTermToggleAll<cr>", "ToggleTermToggleAll"},
   },
 }
 

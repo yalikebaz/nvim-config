@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local dashboard = require("alpha.themes.dashboard")
+local dashboard = require("alpha.themes.dashboard") --or "alpha.themes.startify"
 dashboard.section.header.val = {
 	[[ hi shahbaz,                   __                ]],
 	[[  ___     ___    ___   __  __ /\_\    ___ ___    ]],

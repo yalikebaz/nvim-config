@@ -56,7 +56,7 @@ return packer.startup(function(use)
 	use("akinsho/bufferline.nvim") -- A bufferline
 	use("moll/vim-bbye") -- Provides :Bdelete, which is less annoying than :bdelete
 	use("folke/which-key.nvim") -- Showing bindings
-	use("lukas-reineke/indent-blankline.nvim") -- Shows indent lines. 
+	use("lukas-reineke/indent-blankline.nvim") -- Shows indent lines.
 
 	-- color schemes
 	use("lunarvim/colorschemes") -- A bunch of colorschemes
@@ -101,12 +101,7 @@ return packer.startup(function(use)
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Git
-	use({
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup()
-		end,
-	})
+	use("lewis6991/gitsigns.nvim")
 
 	-- Terminal
 	use("akinsho/toggleterm.nvim")
@@ -114,20 +109,7 @@ return packer.startup(function(use)
 	-- Vim surround
 	use("tpope/vim-surround")
 
-	-- Alpha starting layout theme
-	-- use({
-	-- 	"goolord/alpha-nvim",
-	-- 	requires = { "kyazdani42/nvim-web-devicons" },
-	-- 	config = function()
-	-- 		require("alpha").setup(require("alpha.themes.startify").config)
-	-- 	end,
-	-- })
-	use({
-		"goolord/alpha-nvim",
-		config = function()
-			require("alpha").setup(require("alpha.themes.dashboard").config)
-		end,
-	})
+	use("goolord/alpha-nvim")
 
 	-- A statusline that isn't horrible
 	use({

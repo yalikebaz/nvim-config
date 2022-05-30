@@ -6,7 +6,7 @@ end
 -- you can open another terminal by doing 2<C-\>, other another number for more
 
 toggleterm.setup({
-	size = 12,
+	size = 15,
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
 	shade_filetypes = {},
@@ -56,10 +56,6 @@ local lazygit = Terminal:new({
 	-- 	vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
 	-- end,
 })
-
-function _lazygit_toggle()
-	lazygit:toggle()
-end
 
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()

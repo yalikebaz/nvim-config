@@ -36,6 +36,8 @@ keymap("n", "<leader>q", ":q <CR>", { silent = true })
 
 -- File formatting
 keymap("n", "<leader>w", ":w <cr>", opts)
+keymap("n", "<leader>o", "o<esc>", opts)
+keymap("n", "<leader>O", "O<esc>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)

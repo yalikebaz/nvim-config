@@ -1,0 +1,66 @@
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats '(%b)'
+ 
+# Set up the prompt (with git branch name)
+setopt PROMPT_SUBST
+#PROMPT='%n ${PWD/#$HOME/~} %F{green}%1 ${vcs_info_msg_0_}%F{yellow} > %f'
+PROMPT='%n %F{yellow}[%2d] %F{green}%1 ${vcs_info_msg_0_}%F{yellow} > %f'
+
+# -------
+# ALIASES
+# -------
+alias c="clear"
+alias lo30="lsof -i:3000"
+alias lo31="lsof -i:3001"
+alias n="nvim"
+
+# ---
+# FAV  NAVIGATION
+# ---
+alias cdn="cd ~/.config/nvim; nvim ~/.config/nvim/lua/shahbaz/plugins.lua"
+alias cddev="cd ~/Documents/Dev\ Projects"
+
+alias zshrc="nvim ~/.zshrc"
+# ---
+# GIT
+# ---
+alias lg="lazygit"
+alias gr="git remote -v"
+alias gco="git checkout"
+
+alias ga="git add"
+alias gaa="git add ."
+alias gaaa="git add -A"
+
+alias gb="git branch"
+alias gs="git status"
+alias gcm="git commit -m"
+alias gcom="git checkout master"
+
+alias gcob="git checkout -b"
+alias gcob="git checkout -b"
+
+alias gp="git pull"
+alias gpom="git pull origin master"
+alias gp="git pull"
+alias gpom="git pull origin master"
+
+alias gpush="git push"
+alias gpushu="git push -u origin head"
+
+alias glg='git log --graph --oneline --decorate --all'
+alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+
+# NODE
+# ----
+alias nr="npm run"
+alias ns="npm start"
+
+
+# PATH 
+# mySQL and lvim stuff
+export PATH=${PATH}:/usr/local/mysql/bin/:~/.local/bin

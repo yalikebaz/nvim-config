@@ -19,16 +19,15 @@ local diagnostics = {
 
 local count = function()
 	local total_lines = vim.fn.line("$")
-  local current_line = vim.fn.line(".")
+	local current_line = vim.fn.line(".")
 	return current_line .. "/" .. total_lines
 end
-
 
 local diff = {
 	"diff",
 	colored = false,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-  cond = hide_in_width
+	cond = hide_in_width,
 }
 
 local mode = {
@@ -75,13 +74,21 @@ lualine.setup({
 		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
+		-- disabled_filetypes = { "dashboard", "NvimTree", "Outline", "toggleterm" },
 		disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
 	},
 	sections = {
-		lualine_a = { branch, diagnostics },
+		-- lualine_a = { branch, diagnostics },
+		lualine_a = {
+			{
+				"filename",
+				path = 0,
+				show_filename_only = true,
+			},
+		},
 		lualine_b = { mode },
-		lualine_c = {"filename"},
+		lualine_c = { "filename" },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, filetype },
 		lualine_y = { count },

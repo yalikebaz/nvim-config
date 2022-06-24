@@ -21,7 +21,7 @@ alias n="nvim"
 # ---
 # FAV  NAVIGATION
 # ---
-alias cdn="cd ~/.config/nvim; nvim ~/.config/nvim/lua/shahbaz/plugins.lua"
+alias cdn="cd ~/.config/nvim; nvim"
 alias cddev="cd ~/Documents/Dev\ Projects"
 
 alias zshrc="nvim ~/.zshrc"

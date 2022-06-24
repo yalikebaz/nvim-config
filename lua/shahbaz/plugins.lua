@@ -38,10 +38,10 @@ packer.init({
 	},
 })
 
--- ****************** ################## ******************  PLUGINS START ******************  ##################   ******************
+-- plugins ****************** ################## ******************  PLUGINS START ******************  ##################   ******************
 
 -- Plugins are located at .local/share/nvim/site/pack/packer/start These are plugins that run on startup
--- My plugins here, format is: use "user/repo"
+-- My plugins here, format is: `use:("user/repo")`
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
@@ -65,13 +65,14 @@ return packer.startup(function(use)
 		"catppuccin/nvim",
 		as = "catppuccin",
 	})
+	use("ajgrf/parchment")
+	use("morhetz/gruvbox")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
 	use("hrsh7th/cmp-buffer") -- buffer completions
 	use("hrsh7th/cmp-path") -- path completions
 	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
 	use({
@@ -84,7 +85,8 @@ return packer.startup(function(use)
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
-	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use, see here: https://github.com/rafamadriz/friendly-snippets/wiki#snippets-list
+	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
@@ -93,7 +95,9 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
-	use("nvim-telescope/telescope-media-files.nvim")
+	use("nvim-telescope/telescope-media-files.nvim") -- able to view media files in the telescope preview
+	use("MattesGroeger/vim-bookmarks") -- better bookmarks
+	use("tom-anders/telescope-vim-bookmarks.nvim") -- telescope extension for vim-bookmarks
 	use("BurntSushi/ripgrep") --ripgrep needed for live-grep in telescope
 
 	-- Treesitter
@@ -121,19 +125,23 @@ return packer.startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
-	-- Trouble. I can't tell if this is redundant or not since I have other diagnostics
+	-- Markdown preview
 	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("trouble").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
 		end,
 	})
 
+	-- use({
+	-- 	"iamcco/markdown-preview.nvim",
+	-- 	run = "cd app && npm install",
+	-- 	setup = function()
+	-- 		vim.g.mkdp_filetypes = { "markdown" }
+	-- 	end,
+	-- 	ft = { "markdown" },
+	-- })
+  
 	-- ****************** ################## ******************  PLUGINS END ******************  ##################   ******************
 
 	-- Automatically set up your configuration after cloning packer.nvim

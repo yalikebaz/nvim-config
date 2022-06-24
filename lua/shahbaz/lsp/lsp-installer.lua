@@ -4,13 +4,13 @@ if not status_ok then
 end
 
 -- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
 	local opts = {
 		on_attach = require("shahbaz.lsp.handlers").on_attach,
 		capabilities = require("shahbaz.lsp.handlers").capabilities,
 	}
 
+-- Alternatively, you may also register handlers on specific server instances instead 
 	 if server.name == "jsonls" then
 	 	local jsonls_opts = require("shahbaz.lsp.settings.jsonls")
 	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)

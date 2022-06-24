@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 -- you can open another terminal by doing 2<C-\>, other another number for more
+-- Btw the terminal should update its path based on the buffer you're in, if it doesn't start a new one (or quit and restart it). This is because of the set autochdir setting
 
 toggleterm.setup({
 	size = 15,

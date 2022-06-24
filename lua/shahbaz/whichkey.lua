@@ -81,13 +81,9 @@ local opts = {
 local mappings = {
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-	["b"] = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-		"Buffers",
-	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["T"] = { "<cmd>TroubleToggle<cr>", "Trouble" },
 	["L"] = { "<cmd>:lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
+	["m"] = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
 	["v"] = { "<cmd>vsplit<cr>", "Vert split" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
@@ -98,16 +94,31 @@ local mappings = {
 	--   "Find files",
 	-- },
 	["f"] = {
-		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes'))<cr>",
+		-- "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes'))<cr>",
+		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy())<cr>",
 		"Find files",
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
+	b = {
+		name = "Buffers",
+		b = {
+			"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			"Buffer dropdown",
+		},
+		c = { "<cmd>BufferLinePickClose<CR>", "Pick buffer to close" },
+		l = { "<cmd>BufferLineCloseLeft<CR>", "Close buffers to left" },
+		r = { "<cmd>BufferLineCloseRight<CR>", "Close buffers to right" },
+		p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
+	},
+
 	o = {
 		name = "Options",
 		r = { "<cmd>set relativenumber!<cr>", "Toggle relative line number" },
 		n = { "<cmd>set number!<cr>", "Toggle line number" },
+		w = { "<cmd>set wrap!<cr>", "Toggle word wrap" },
+		z = { "<cmd>set fdm=indent<cr>", "Set foldmethod to syntax" },
 	},
 
 	p = {
@@ -178,8 +189,14 @@ local mappings = {
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+		M = { "<cmd>Telescope vim_bookmarks all theme=ivy<cr>", "All marks" },
+		m = { "<cmd>Telescope vim_bookmarks current_file theme=ivy<cr>", "Marks in current file" },
+		-- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+		f = {
+			"<cmd>Telescope find_files<cr>",
+			"Find files",
+		},
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },

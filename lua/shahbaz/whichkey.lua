@@ -165,7 +165,7 @@ local mappings = {
 			"Prev Diagnostic",
 		},
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
+		q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" }, -- FIX: what is this?
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
@@ -177,15 +177,21 @@ local mappings = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-		m = { "<cmd>Telescope vim_bookmarks all theme=ivy<cr>", "All marks" },
-		M = { "<cmd>Telescope vim_bookmarks current_file theme=ivy<cr>", "Marks in current file" },
-		-- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		f = {
 			"<cmd>Telescope find_files<cr>",
 			"Find files",
 		},
+		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+		m = { "<cmd>Telescope vim_bookmarks all theme=ivy<cr>", "All marks" },
+		M = { "<cmd>Telescope vim_bookmarks current_file theme=ivy<cr>", "Marks in current file" },
+		-- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+		p = {
+			"<cmd>lua require('telescope.builtin.internal').colorscheme(require('telescope.themes').get_dropdown({enable_preview=true}))<cr>",
+			"Colorscheme with Preview",
+
+			-- require('telescope.themes').get_dropdown()}
+		},
+		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },

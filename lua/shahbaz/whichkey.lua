@@ -46,7 +46,7 @@ local setup = {
 		border = "rounded", -- none, single, double, shadow
 		position = "bottom", -- bottom, top
 		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+		padding = { 1, 2, 1, 2 }, -- extra window padding [top, right, bottom, left]
 		winblend = 0,
 	},
 	layout = {
@@ -81,36 +81,29 @@ local opts = {
 local mappings = {
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["L"] = { "<cmd>:lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
-	["m"] = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
-	["v"] = { "<cmd>vsplit<cr>", "Vert split" },
-	["w"] = { "<cmd>w!<CR>", "Save" },
-	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	-- ["f"] = { This version if you don't want the preview
-	--   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-	--   "Find files",
-	-- },
+	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["f"] = {
-		-- "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes'))<cr>",
 		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy())<cr>",
 		"Find files",
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	["L"] = { "<cmd>:lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
+	["M"] = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
 	["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+	["q"] = { "<cmd>q!<CR>", "Quit" },
+	["v"] = { "<cmd>vsplit<cr>", "Vert split" },
+	["w"] = { "<cmd>w!<CR>", "Save" },
+	["T"] = { "<cmd>:TodoTelescope<cr>", "Todos" },
 
-	b = {
-		name = "Buffers",
-		b = {
-			"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-			"Buffer dropdown",
+	m = {
+		name = "Marks",
+		m = {
+			"<cmd>:BookmarkToggle<cr>",
+			"Toggle mark",
 		},
-		c = { "<cmd>BufferLinePickClose<CR>", "Pick buffer to close" },
-		l = { "<cmd>BufferLineCloseLeft<CR>", "Close buffers to left" },
-		r = { "<cmd>BufferLineCloseRight<CR>", "Close buffers to right" },
-		p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
+		a = { "<cmd>:BookmarkAnnotate<CR>", "Mark annotation" },
 	},
 
 	o = {
@@ -160,10 +153,6 @@ local mappings = {
 			"<cmd>Telescope diagnostics<cr>",
 			"Document Diagnostics",
 		},
-		w = {
-			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
-			"Workspace Diagnostics",
-		},
 		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
@@ -189,8 +178,8 @@ local mappings = {
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-		M = { "<cmd>Telescope vim_bookmarks all theme=ivy<cr>", "All marks" },
-		m = { "<cmd>Telescope vim_bookmarks current_file theme=ivy<cr>", "Marks in current file" },
+		m = { "<cmd>Telescope vim_bookmarks all theme=ivy<cr>", "All marks" },
+		M = { "<cmd>Telescope vim_bookmarks current_file theme=ivy<cr>", "Marks in current file" },
 		-- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		f = {

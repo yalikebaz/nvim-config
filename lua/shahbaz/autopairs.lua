@@ -13,7 +13,7 @@ npairs.setup {
   },
   disable_filetype = { "TelescopePrompt", "spectre_panel" },
   fast_wrap = {
-    -- TODO pretty cool feature, learn it. its in c@m's vids too
+    -- TODO: pretty cool feature, learn it. its in c@m's vids too
     map = "<M-e>",
     chars = { "{", "[", "(", '"', "'" },
     pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),

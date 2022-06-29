@@ -45,7 +45,7 @@ keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 
--- Navigate buffers
+-- Navigate buffers, using l and h because K is reserved for goto in vim (unless I wanna remap that?)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
@@ -77,7 +77,7 @@ keymap("t", "<ESC>", "<C-\\><C-n>", term_opts)
 keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
--- Comments --
-keymap("n", "<leader>/", "<cmd>lua require(\"Comment.api\").toggle_current_linewise()<CR>", opts) --why did i have to do it this way lol
+-- Comments 
+keymap("n", "<leader>/", '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', opts) --why did i have to do it this way lol
 -- the above doesnt uncomment jsx properly
-keymap("v", "<leader>/", "gc<cr>", opts) -- TODO this doesn't work
+keymap("v", "<leader>/", "gc<cr>", opts) -- TODO: this doesn't work

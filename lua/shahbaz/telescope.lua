@@ -105,7 +105,7 @@ telescope.setup({
 			filetypes = { "png", "webp", "jpg", "jpeg" },
 			find_cmd = "rg", -- find command (defaults to `fd`)
 		},
-		-- why isnt this working
+		-- TODO: why isnt this working
 		vim_bookmarks = {
 			width_text = 40,
 			width_line = 1,

@@ -38,15 +38,15 @@ packer.init({
 	},
 })
 
--- plugins ****************** ################## ******************  PLUGINS START ******************  ##################   ******************
+-- ****************** ################## ******************  PLUGINS START ******************  ##################   ******************
 
 -- Plugins are located at .local/share/nvim/site/pack/packer/start These are plugins that run on startup
 -- My plugins here, format is: `use:("user/repo")`
 return packer.startup(function(use)
+	-- Miscellaneous
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
-	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use({
 		"numToStr/Comment.nvim", -- Easily comment stuff
 		config = function()
@@ -57,6 +57,7 @@ return packer.startup(function(use)
 	use("moll/vim-bbye") -- Provides :Bdelete, which is less annoying than :bdelete
 	use("folke/which-key.nvim") -- Showing bindings
 	use("lukas-reineke/indent-blankline.nvim") -- Shows indent lines.
+	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }) -- a better todo manager
 
 	-- color schemes
 	use("lunarvim/colorschemes") -- A bunch of colorschemes
@@ -67,6 +68,7 @@ return packer.startup(function(use)
 	})
 	use("ajgrf/parchment")
 	use("morhetz/gruvbox")
+	use("arcticicestudio/nord-vim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -83,15 +85,39 @@ return packer.startup(function(use)
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
 
+	-- LSP
+	use({
+		"williamboman/nvim-lsp-installer", -- language server installer
+		"neovim/nvim-lspconfig", --LSP config native to neovim
+	})
+	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+
+	-- Treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	})
+
+	-- Treesitter plugins
+	-- use("tree-sitter/tree-sitter-typescript")
+	use("windwp/nvim-autopairs") -- Autopair brackets, integrates with both cmp and treesitter
+	use("p00f/nvim-ts-rainbow") -- Rainbow brackets
+	use("JoosepAlviste/nvim-ts-context-commentstring") -- Contextual comments for tsx... TODO: not working
+	use({ -- Auto tagging for html
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				autotag = {
+					enable = true,
+				},
+			})
+		end,
+	})
+
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use, see here: https://github.com/rafamadriz/friendly-snippets/wiki#snippets-list
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-
-	-- LSP
-	use("neovim/nvim-lspconfig") -- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
@@ -99,14 +125,6 @@ return packer.startup(function(use)
 	use("MattesGroeger/vim-bookmarks") -- better bookmarks
 	use("tom-anders/telescope-vim-bookmarks.nvim") -- telescope extension for vim-bookmarks
 	use("BurntSushi/ripgrep") --ripgrep needed for live-grep in telescope
-
-	-- Treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
-	use("p00f/nvim-ts-rainbow")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
@@ -141,7 +159,7 @@ return packer.startup(function(use)
 	-- 	end,
 	-- 	ft = { "markdown" },
 	-- })
-  
+
 	-- ****************** ################## ******************  PLUGINS END ******************  ##################   ******************
 
 	-- Automatically set up your configuration after cloning packer.nvim

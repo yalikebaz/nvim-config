@@ -88,15 +88,14 @@ local mappings = {
 		"Find files",
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["L"] = { "<cmd>:lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
-	["M"] = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
 	["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["v"] = { "<cmd>vsplit<cr>", "Vert split" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["T"] = { "<cmd>:TodoTelescope<cr>", "Todos" },
 
+  -- By the way, you can nest groups! Just follow the same syntax
 	m = {
 		name = "Marks",
 		m = {
@@ -189,12 +188,19 @@ local mappings = {
 			"<cmd>lua require('telescope.builtin.internal').colorscheme(require('telescope.themes').get_dropdown({enable_preview=true}))<cr>",
 			"Colorscheme with Preview",
 
-			-- require('telescope.themes').get_dropdown()}
+			-- require('telescope.themes').get_dropdown()
 		},
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
+	},
+
+	u = {
+		name = "UI",
+		c = { "<cmd>VCoolor<cr>", "Color picker" },
+		["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+		["M"] = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
 	},
 
 	t = {

@@ -58,17 +58,20 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim") -- Showing bindings
 	use("lukas-reineke/indent-blankline.nvim") -- Shows indent lines.
 	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }) -- a better todo manager
+  use('KabbAmine/vCoolor.vim') -- color picker
 
 	-- color schemes
 	use("lunarvim/colorschemes") -- A bunch of colorschemes
 	use("folke/tokyonight.nvim")
+	use("ajgrf/parchment")
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
 	})
-	use("ajgrf/parchment")
 	use("morhetz/gruvbox")
 	use("arcticicestudio/nord-vim")
+	use("EdenEast/nightfox.nvim")
+	use("sainnhe/edge")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

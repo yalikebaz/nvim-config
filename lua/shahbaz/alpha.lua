@@ -27,10 +27,11 @@ dashboard.section.buttons.val = {
 	-- For your own icons: https://www.nerdfonts.com/cheat-sheet
 	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
 	dashboard.button("e", "פּ  Open Nvim Tree", "<cmd>NvimTreeToggle<cr>"),
-	dashboard.button("b", "  Bookmarks", ":Telescope vim_bookmarks all<CR>"),
+	dashboard.button("m", "  Bookmarks", ":Telescope vim_bookmarks all<CR>"),
 	dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
 	dashboard.button("F", "  Find text", ":Telescope live_grep <CR>"),
 	dashboard.button("p", "  Plugin configuration", ":e ~/.config/nvim/lua/shahbaz/plugins.lua <CR>|:41<CR>"),
+  dashboard.button("c", "  Change colorscheme", ":e ~/.config/nvim/lua/shahbaz/colorscheme.lua<CR>"),
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
 
@@ -40,7 +41,8 @@ local function footer()
 	-- local fortune = handle:read("*a")
 	-- handle:close()
 	-- return fortune
-	return "the end"
+	require("shahbaz.colorscheme")
+	return "Colorscheme: " .. Colorscheme
 end
 
 dashboard.section.footer.val = footer()

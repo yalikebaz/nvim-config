@@ -12,3 +12,10 @@ space: stages a change
 a: stages all changes
 
 . and , can scroll pages in the panels
+
+# config
+In order to allow 'e' to edit the file in neovim from the lazygit window, go to the path: /Users/shahbazsiddiqui/Library/Application Support/lazygit/config.yml
+
+and add this:
+os:
+  editCommand: "nvim"

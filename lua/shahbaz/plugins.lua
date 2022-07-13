@@ -58,7 +58,16 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim") -- Showing bindings
 	use("lukas-reineke/indent-blankline.nvim") -- Shows indent lines.
 	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }) -- a better todo manager
-  use('KabbAmine/vCoolor.vim') -- color picker
+	use("KabbAmine/vCoolor.vim") -- color picker
+	use({
+		"lalitmee/browse.nvim",
+		requires = { "nvim-telescope/telescope.nvim" },
+		config = function()
+			require("browse").setup({
+				provider = "google",
+			})
+		end,
+	}) -- A handy browse tool
 
 	-- color schemes
 	use("lunarvim/colorschemes") -- A bunch of colorschemes

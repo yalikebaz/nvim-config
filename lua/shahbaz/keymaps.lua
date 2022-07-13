@@ -36,7 +36,7 @@ keymap("n", "<leader>q", ":q <CR>", { silent = true })
 
 -- File formatting
 keymap("n", "<leader>w", ":w <cr>", opts)
-keymap("n", "<leader>o", "o<esc>", opts)
+keymap("n", "<leader>o", "o<esc>", opts) -- FIX: conflicts with a whichkey options bind
 keymap("n", "<leader>O", "O<esc>", opts)
 
 -- Resize with arrows
@@ -56,8 +56,8 @@ keymap("i", "ww", "<ESC>:w <CR>", opts) -- Save
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+keymap("v", "<", "<gv", opts)
 keymap("v", "p", '"_dP', opts) -- When pasting over a highlighted item, keeps the original pasted item in clipboard
 
 -- Visual Block (ctrl+v) --
@@ -75,7 +75,7 @@ keymap("t", "<ESC>", "<C-\\><C-n>", term_opts)
 
 -- Telescope --
 keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+-- keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
 -- Comments 
 keymap("n", "<leader>/", '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', opts) --why did i have to do it this way lol

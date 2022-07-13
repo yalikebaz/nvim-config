@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+require("shahbaz.browseConfig")
+
 local setup = {
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
@@ -95,7 +97,7 @@ local mappings = {
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["T"] = { "<cmd>:TodoTelescope<cr>", "Todos" },
 
-  -- By the way, you can nest groups! Just follow the same syntax
+	-- By the way, you can nest groups! Just follow the same syntax
 	m = {
 		name = "Marks",
 		m = {
@@ -172,8 +174,8 @@ local mappings = {
 			"Workspace Symbols",
 		},
 	},
-	s = {
-		name = "Search",
+	b = {
+		name = "Browse",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		f = {
@@ -181,9 +183,9 @@ local mappings = {
 			"Find files",
 		},
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-		m = { "<cmd>Telescope vim_bookmarks all theme=ivy<cr>", "All marks" },
-		M = { "<cmd>Telescope vim_bookmarks current_file theme=ivy<cr>", "Marks in current file" },
-		-- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+		-- m = { "<cmd>Telescope vim_bookmarks all theme=ivy<cr>", "All marks" }, -- BUG: this is the vim_bookmarks extension command that is now broken since telescope updated and removed some deprecated code commands. For now just use 'ma' command in normal mode
+		-- M = { "<cmd>Telescope vim_bookmarks current_file theme=ivy<cr>", "Marks in current file" }, -- BUG: see above
+		-- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" }, --dunno wtf man pages are
 		p = {
 			"<cmd>lua require('telescope.builtin.internal').colorscheme(require('telescope.themes').get_dropdown({enable_preview=true}))<cr>",
 			"Colorscheme with Preview",
@@ -194,6 +196,18 @@ local mappings = {
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
+	},
+
+	s = {
+		name = "Search",
+		r = {
+			function()
+				require("browse").open_bookmarks({ bookmarks = Bookmarks })
+			end,
+			"References",
+		},
+		d = { "<cmd>lua require('browse.devdocs').search()<cr>", "Devdocs" },
+		g = { "<cmd>lua require('browse').input_search()<cr>", "Google" },
 	},
 
 	u = {

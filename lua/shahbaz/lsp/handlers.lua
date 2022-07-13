@@ -75,7 +75,8 @@ local function lsp_keymaps(bufnr) -- TODO: this needs some cleanup
 		bufnr,
 		"n",
 		"gl",
-		'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
+		-- '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>', -- deprecated i thin
+		'<cmd>lua vim.diagnostic.open_float()<CR>',
 		-- '<cmd>vim.diagnostic.open_float(0, {scope="line"})<CR>',
 
 		opts

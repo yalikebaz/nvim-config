@@ -17,11 +17,13 @@ end
 --
 -- Colorscheme specific configs
 if Colorscheme == "catppuccin" then
-	vim.cmd([[highlight IndentBlanklineIndent1 guibg=#270236 gui=nocombine]])
-	vim.cmd([[highlight IndentBlanklineIndent2 guibg=#180124 gui=nocombine]])
-	-- The next two commands are meant for Catppuccin macchiato
-	vim.cmd("hi Comment guifg=#7F86A6")
-	vim.cmd("hi LineNr guifg=#7F86A6")
+	-- vim.cmd([[highlight IndentBlanklineIndent1 guibg=#270236 gui=nocombine]])
+	-- vim.cmd([[highlight IndentBlanklineIndent2 guibg=#180124 gui=nocombine]])
+	-- -- The next two commands are meant for Catppuccin macchiato
+	-- vim.cmd("hi Comment guifg=#7F86A6")
+	-- vim.cmd("hi LineNr guifg=#7F86A6")
+	vim.g.catppuccin_flavour = "latte" -- latte, frappe, macchiato, mocha
+	vim.cmd([[colorscheme catppuccin]])
 elseif Colorscheme == "nightfox" then
 	vim.cmd([[highlight IndentBlanklineIndent1 guibg=#222F45 gui=nocombine]])
 	vim.cmd([[highlight IndentBlanklineIndent2 guibg=#131A24 gui=nocombine]])

@@ -68,6 +68,7 @@ return packer.startup(function(use)
 			})
 		end,
 	}) -- A handy browse tool
+	use("diepm/vim-rest-console") -- A REST client
 
 	-- color schemes
 	use("lunarvim/colorschemes") -- A bunch of colorschemes

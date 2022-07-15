@@ -198,6 +198,31 @@ local mappings = {
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
 
+	r = {
+		name = "REST Client",
+		o = {
+			function()
+				local f = io.open("REST Client.rest", "r")
+				if f == nil then
+					vim.cmd(":e REST Client.rest")
+					vim.cmd("normal A# Don't save this file, just run the REST client commands.")
+					vim.cmd("normal o# If you do save it, REMEMBER TO DELETE IT AFTER")
+					vim.cmd("normal o")
+					vim.cmd("normal ohttp://localhost: ")
+					vim.cmd("normal o")
+					vim.cmd("normal o# GET /endpoint")
+					vim.cmd("normal o# POST /endpoint {'key': 'new key','value': 'new value'}")
+					vim.cmd(":4")
+					vim.cmd("startreplace")
+				else
+					vim.cmd(":e REST Client.rest")
+				end
+			end,
+			"Open REST client (VRC)",
+		},
+		c = { ":call VrcQuery()<esc><C-w>l", "Call endpoint" },
+	},
+
 	s = {
 		name = "Search",
 		r = {

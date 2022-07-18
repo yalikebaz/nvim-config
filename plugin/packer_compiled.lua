@@ -307,6 +307,11 @@ _G.packer_plugins = {
     path = "/Users/shahbazsiddiqui/.local/share/nvim/site/pack/packer/start/vim-bookmarks",
     url = "https://github.com/MattesGroeger/vim-bookmarks"
   },
+  ["vim-easy-replace"] = {
+    loaded = true,
+    path = "/Users/shahbazsiddiqui/.local/share/nvim/site/pack/packer/start/vim-easy-replace",
+    url = "https://github.com/kqito/vim-easy-replace"
+  },
   ["vim-rest-console"] = {
     loaded = true,
     path = "/Users/shahbazsiddiqui/.local/share/nvim/site/pack/packer/start/vim-rest-console",

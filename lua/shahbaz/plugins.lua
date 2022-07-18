@@ -44,6 +44,7 @@ packer.init({
 -- My plugins here, format is: `use:("user/repo")`
 return packer.startup(function(use)
 	-- Miscellaneous
+	use("kqito/vim-easy-replace") -- Better vim substitute, only use if you don't need confirmations
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
@@ -133,7 +134,12 @@ return packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 
 	-- Telescope
-	use("nvim-telescope/telescope.nvim")
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		-- or                            , branch = '0.1.x',
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 	use("nvim-telescope/telescope-media-files.nvim") -- able to view media files in the telescope preview
 	use("MattesGroeger/vim-bookmarks") -- better bookmarks
 	use("tom-anders/telescope-vim-bookmarks.nvim") -- telescope extension for vim-bookmarks

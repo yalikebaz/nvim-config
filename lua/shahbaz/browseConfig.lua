@@ -1,3 +1,4 @@
+-- TODO: rename this file to kebab-case
 Bookmarks = {
 	"https://ss64.com/osx/", -- Command line ref
 	"https://devdocs.io/", -- Devdocs

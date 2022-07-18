@@ -1,3 +1,5 @@
+require("shahbaz.colorscheme")
+
 local status_ok, alpha = pcall(require, "alpha")
 if not status_ok then
 	return
@@ -25,27 +27,36 @@ dashboard.section.header.val = {
 }
 dashboard.section.buttons.val = {
 	-- For your own icons: https://www.nerdfonts.com/cheat-sheet
+	-- TODO: Toggle light/dark theme button
 	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
 	dashboard.button("e", "פּ  Open Nvim Tree", "<cmd>NvimTreeToggle<cr>"),
 	dashboard.button("m", "  Bookmarks", ":Telescope vim_bookmarks all<CR>"),
 	dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
 	dashboard.button("F", "  Find text", ":Telescope live_grep <CR>"),
 	dashboard.button("p", "  Plugin configuration", ":e ~/.config/nvim/lua/shahbaz/plugins.lua <CR>|:41<CR>"),
-  dashboard.button("c", "  Change colorscheme", ":e ~/.config/nvim/lua/shahbaz/colorscheme.lua<CR>"),
+	dashboard.button(
+		"c",
+		"  Change colorscheme",
+		"<cmd>lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown({enable_preview=true}))<cr>"
+	),
+	dashboard.button(
+		"t",
+		"嗀 Toggle light/dark mode",
+		":luafile ~/.config/nvim/lua/shahbaz/toggle-colorscheme.lua<cr>"
+	),
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
 
-local function footer()
+function Footer()
 	-- note: requires the fortune-mod package to work
 	-- local handle = io.popen("fortune")
 	-- local fortune = handle:read("*a")
 	-- handle:close()
 	-- return fortune
-	require("shahbaz.colorscheme")
 	return "Colorscheme: " .. Colorscheme
 end
 
-dashboard.section.footer.val = footer()
+dashboard.section.footer.val = Footer()
 
 dashboard.section.footer.opts.hl = "Type"
 dashboard.section.header.opts.hl = "Include"

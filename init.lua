@@ -13,6 +13,7 @@ require("shahbaz.bufferline")
 require("shahbaz.alpha")
 require("shahbaz.toggleterm")
 require("shahbaz.whichkey")
+require("shahbaz.easy-vim-replace")
 
 -- Colorscheme
 require("shahbaz.colorscheme")

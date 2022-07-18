@@ -81,47 +81,46 @@ local opts = {
 }
 
 local mappings = {
-	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
-	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+	-- TODO: make a group for buffers: Bdelete!, bufferlinemovenext, bufferlinemoveprev...i dont think the last 2 work properly
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["f"] = {
-		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy())<cr>",
-		"Find files",
-	},
-	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-	["L"] = { "<cmd>:lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
-	["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+	-- ["P"] = { "<cmd>Telescope projects<cr>", "Projects" }, -- TODO: what is this?
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["v"] = { "<cmd>vsplit<cr>", "Vert split" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
-	["T"] = { "<cmd>:TodoTelescope<cr>", "Todos" },
 
-	-- By the way, you can nest groups! Just follow the same syntax
-	m = {
-		name = "Marks",
-		m = {
-			"<cmd>:BookmarkToggle<cr>",
-			"Toggle mark",
+	b = {
+		name = "Browse",
+		a = { "<cmd>Alpha<cr>", "Alpha" },
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		f = {
+			"<cmd>Telescope find_files<cr>",
+			"Find files",
 		},
-		a = { "<cmd>:BookmarkAnnotate<CR>", "Mark annotation" },
-	},
+		F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+		m = { "<cmd>Telescope vim_bookmarks all theme=ivy<cr>", "All marks" },
+		M = { "<cmd>Telescope vim_bookmarks current_file theme=ivy<cr>", "Marks in current file" },
+		-- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" }, --dunno wtf man pages are
+		p = {
+			"<cmd>lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown({enable_preview=true}))<cr>",
+			"Colorscheme with Preview",
 
-	o = {
-		name = "Options",
-		r = { "<cmd>set relativenumber!<cr>", "Toggle relative line number" },
-		n = { "<cmd>set number!<cr>", "Toggle line number" },
-		w = { "<cmd>set wrap!<cr>", "Toggle word wrap" },
-		z = { "<cmd>set fdm=indent<cr>", "Set foldmethod to syntax" },
-	},
+			-- require('telescope.themes').get_dropdown()
+		},
+		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+		R = { "<cmd>Telescope registers<cr>", "Registers" },
+		T = { "<cmd>:TodoTelescope<cr>", "Todos" },
+		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+		C = { "<cmd>Telescope commands<cr>", "Commands" },
+	}, -- By the way, you can nest groups! Just follow the same syntax
 
-	p = {
-		name = "Packer",
-		c = { "<cmd>PackerCompile<cr>", "Compile" },
-		i = { "<cmd>PackerInstall<cr>", "Install" },
-		s = { "<cmd>PackerSync<cr>", "Sync" },
-		S = { "<cmd>PackerStatus<cr>", "Status" },
-		u = { "<cmd>PackerUpdate<cr>", "Update" },
+	f = {
+		name = "File",
+		s = { "Substitute" },
+		c = { "Substitute under cursor" },
+		["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
 	},
 
 	g = {
@@ -174,53 +173,70 @@ local mappings = {
 			"Workspace Symbols",
 		},
 	},
-	b = {
-		name = "Browse",
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-		f = {
-			"<cmd>Telescope find_files<cr>",
-			"Find files",
-		},
-		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-		-- m = { "<cmd>Telescope vim_bookmarks all theme=ivy<cr>", "All marks" }, -- BUG: this is the vim_bookmarks extension command that is now broken since telescope updated and removed some deprecated code commands. For now just use 'ma' command in normal mode
-		-- M = { "<cmd>Telescope vim_bookmarks current_file theme=ivy<cr>", "Marks in current file" }, -- BUG: see above
-		-- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" }, --dunno wtf man pages are
-		p = {
-			"<cmd>lua require('telescope.builtin.internal').colorscheme(require('telescope.themes').get_dropdown({enable_preview=true}))<cr>",
-			"Colorscheme with Preview",
 
-			-- require('telescope.themes').get_dropdown()
+	m = {
+		name = "Marks",
+		m = {
+			"<cmd>:BookmarkToggle<cr>",
+			"Toggle mark",
 		},
-		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-		R = { "<cmd>Telescope registers<cr>", "Registers" },
-		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-		C = { "<cmd>Telescope commands<cr>", "Commands" },
+		a = { "<cmd>:BookmarkAnnotate<CR>", "Mark annotation" },
+	},
+
+	o = {
+		name = "Options",
+		c = { "<cmd>set ignorecase!<cr>", "Toggle case sensitive search/replace" },
+		r = { "<cmd>set relativenumber!<cr>", "Toggle relative line number" },
+		n = { "<cmd>set number!<cr>", "Toggle line number" },
+		w = { "<cmd>set wrap!<cr>", "Toggle word wrap" },
+		z = { "<cmd>set fdm=indent<cr>", "Set foldmethod to syntax" },
+	},
+
+	p = {
+		name = "Packer",
+		c = { "<cmd>PackerCompile<cr>", "Compile" },
+		i = { "<cmd>PackerInstall<cr>", "Install" },
+		s = { "<cmd>PackerSync<cr>", "Sync" },
+		S = { "<cmd>PackerStatus<cr>", "Status" },
+		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
 
 	r = {
 		name = "REST Client",
 		o = {
 			function()
-				local f = io.open("REST Client.rest", "r")
+				local f = io.open("RESTClient (delete me).rest", "r")
 				if f == nil then
-					vim.cmd(":e REST Client.rest")
+					vim.cmd(":e RESTClient (delete me).rest")
 					vim.cmd("normal A# Don't save this file, just run the REST client commands.")
 					vim.cmd("normal o# If you do save it, REMEMBER TO DELETE IT AFTER")
-					vim.cmd("normal o")
+					vim.cmd("normal o") -- new line
 					vim.cmd("normal ohttp://localhost: ")
+
+					vim.cmd("normal o-i # needed for formatting")
 					vim.cmd("normal o")
+					vim.cmd("normal o# HEADERS, optional")
+					vim.cmd("normal oContent-Type: application/json")
+					vim.cmd("normal o# Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")
+					vim.cmd("normal o# Cache-Control: no-cache")
+					vim.cmd("normal o# Connection: keep-alive")
+					vim.cmd("normal o# Cookie: userId=ac32:dfbe:8f1a:249c; sid=cfb48e3d98fcb1")
+					vim.cmd("normal o# User-Agent: VRCnt-Type: application/json")
+
+					vim.cmd("normal o")
+					vim.cmd("normal o# ENDPOINTS")
 					vim.cmd("normal o# GET /endpoint")
-					vim.cmd("normal o# POST /endpoint {'key': 'new key','value': 'new value'}")
+					vim.cmd("normal o# POST /endpoint")
+					vim.cmd('normal o{"key": "new key","value": "new value"}')
 					vim.cmd(":4")
 					vim.cmd("startreplace")
 				else
-					vim.cmd(":e REST Client.rest")
+					vim.cmd(":e RESTClient (delete me).rest")
 				end
 			end,
 			"Open REST client (VRC)",
 		},
-		c = { ":call VrcQuery()<esc><C-w>l", "Call endpoint" },
+		c = { ":call VrcQuery()<cr><C-w>l:only<cr>", "Call endpoint" },
 	},
 
 	s = {
@@ -235,13 +251,6 @@ local mappings = {
 		g = { "<cmd>lua require('browse').input_search()<cr>", "Google" },
 	},
 
-	u = {
-		name = "UI",
-		c = { "<cmd>VCoolor<cr>", "Color picker" },
-		["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-		["M"] = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
-	},
-
 	t = {
 		name = "Terminal",
 		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
@@ -252,6 +261,13 @@ local mappings = {
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 		t = { "<cmd>ToggleTermToggleAll<cr>", "ToggleTermToggleAll" },
+	},
+
+	u = {
+		name = "UI",
+		c = { "<cmd>VCoolor<cr>", "Color picker" },
+		["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+		["M"] = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
 	},
 }
 
@@ -265,6 +281,7 @@ local vopts = {
 }
 local vmappings = {
 	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
+	["s"] = { "Substitute" },
 }
 
 which_key.setup(setup)

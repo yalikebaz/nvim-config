@@ -36,8 +36,6 @@ keymap("n", "<leader>q", ":q <CR>", { silent = true })
 
 -- File formatting
 keymap("n", "<leader>w", ":w <cr>", opts)
-keymap("n", "<leader>o", "o<esc>", opts) -- FIX: conflicts with a whichkey options bind
-keymap("n", "<leader>O", "O<esc>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -74,7 +72,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("t", "<ESC>", "<C-\\><C-n>", term_opts)
 
 -- Telescope --
-keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
+-- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts) --This is set in whichkey
 -- keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
 -- Comments 

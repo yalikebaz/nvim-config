@@ -89,8 +89,8 @@ local mappings = {
 	["v"] = { "<cmd>vsplit<cr>", "Vert split" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 
-	b = {
-		name = "Browse",
+	s = {
+		name = "Search",
 		a = { "<cmd>Alpha<cr>", "Alpha" },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
@@ -240,8 +240,8 @@ local mappings = {
 		c = { ":call VrcQuery()<cr><C-w>l:only<cr>", "Call endpoint" },
 	},
 
-	s = {
-		name = "Search",
+	b = {
+		name = "Browse",
 		r = {
 			function()
 				require("browse").open_bookmarks({ bookmarks = Bookmarks })

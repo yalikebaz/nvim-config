@@ -122,8 +122,6 @@ local mappings = {
 		-- l = { "<cmd>:lopen<cr>", "Location list" },
 		l = { "<cmd>:Telescope loclist<cr>", "Location list" },
 		e = { ":call setloclist(0,[])<cr>:lua print('loclist emptied!')<cr>)", "Empty location list" },
-		s = { "Substitute" },
-		c = { "Substitute under cursor" },
 		["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
 
 		s = {

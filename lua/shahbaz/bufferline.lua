@@ -3,6 +3,8 @@ if not status_ok then
   return
 end
 
+-- TODO: for some reason when the colorscheme is nightfox, starting a new nvim session causes the buffer backgrounda rea to be an annoying light grey. but then if you manually set the colorscheme to nightfox, it fixes??
+
 bufferline.setup {
   options = {
     mode = "buffers", --can be tabs,

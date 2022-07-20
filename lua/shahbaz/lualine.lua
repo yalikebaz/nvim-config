@@ -34,6 +34,7 @@ local mode = {
 	"mode",
 	fmt = function(str)
 		return "-- " .. str .. " --"
+		-- return " " .. str .. " "
 	end,
 }
 
@@ -63,6 +64,10 @@ local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
+local terminalNumber = function()
+	return '%{&ft == "toggleterm" ? "Term (".b:toggle_number.")" : ""}'
+end
+
 lualine.setup({
 	options = {
 		icons_enabled = true,
@@ -72,22 +77,20 @@ lualine.setup({
 		-- disabled_filetypes = { "dashboard", "NvimTree", "Outline", "toggleterm" },
 		disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
+		globalstatus = true,
 	},
 	sections = {
 		-- lualine_a = { branch, diagnostics },
 		lualine_a = {
 			mode,
 		},
-		lualine_b = { diagnostics },
+		lualine_b = { branch, diagnostics, terminalNumber },
 		lualine_c = {
 			{
 				"filename",
 				path = 3,
-				-- show_filename_only = true,
 			},
 		},
-
-		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, filetype },
 		lualine_y = { count },
 		lualine_z = { progress },

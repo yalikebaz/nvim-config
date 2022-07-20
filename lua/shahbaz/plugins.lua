@@ -44,17 +44,17 @@ packer.init({
 -- My plugins here, format is: `use:("user/repo")`
 return packer.startup(function(use)
 	-- Miscellaneous
-	use("kqito/vim-easy-replace") -- Better vim substitute, only use if you don't need confirmations
+	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }) -- Better vim folding
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
-	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
+	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
 	use({
 		"numToStr/Comment.nvim", -- Easily comment stuff
 		config = function()
 			require("Comment").setup()
 		end,
 	})
-	use("akinsho/bufferline.nvim") -- A bufferline
+	use("akinsho/bufferline.nvim") -- Tracks buffers
 	use("moll/vim-bbye") -- Provides :Bdelete, which is less annoying than :bdelete
 	use("folke/which-key.nvim") -- Showing bindings
 	use("lukas-reineke/indent-blankline.nvim") -- Shows indent lines.

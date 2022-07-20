@@ -93,7 +93,7 @@ local mappings = {
 		name = "Search",
 		a = { "<cmd>Alpha<cr>", "Alpha" },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		-- c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		f = {
 			"<cmd>Telescope find_files<cr>",
 			"Find files",
@@ -103,12 +103,13 @@ local mappings = {
 		m = { "<cmd>Telescope vim_bookmarks all theme=ivy<cr>", "All marks" },
 		M = { "<cmd>Telescope vim_bookmarks current_file theme=ivy<cr>", "Marks in current file" },
 		-- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" }, --dunno wtf man pages are
-		p = {
+		c = {
 			"<cmd>lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown({enable_preview=true}))<cr>",
 			"Colorscheme with Preview",
 
 			-- require('telescope.themes').get_dropdown()
 		},
+		p = { ":e ~/.config/nvim/lua/shahbaz/plugins.lua<cr>", "Plugins" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		T = { "<cmd>:TodoTelescope<cr>", "Todos" },
@@ -118,9 +119,47 @@ local mappings = {
 
 	f = {
 		name = "File",
-		s = { "Substitute" },
-		c = { "Substitute under cursor" },
 		["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
+
+		s = {
+			function()
+				local word1 = vim.fn.input("find: ", "")
+				local word2 = vim.fn.input("replace with: ", "")
+				local w = "s/" .. word1 .. "/" .. word2 .. "/" .. "g"
+				vim.cmd(w)
+			end,
+			"Substitute in line",
+		},
+
+		c = {
+			function()
+				local word1 = vim.fn.input("find: ", "")
+				local word2 = vim.fn.input("replace with: ", "")
+				local w = "s/" .. word1 .. "/" .. word2 .. "/" .. "gc"
+				vim.cmd(w)
+			end,
+			"Substitute in line (confirm)",
+		},
+
+		S = {
+			function()
+				local word1 = vim.fn.input("find: ", "")
+				local word2 = vim.fn.input("replace with: ", "")
+				local w = ":%s/" .. word1 .. "/" .. word2 .. "/" .. "g"
+				vim.cmd(w)
+			end,
+			"Substitute in file",
+		},
+
+		C = {
+			function()
+				local word1 = vim.fn.input("find: ", "")
+				local word2 = vim.fn.input("replace with: ", "")
+				local w = ":%s/" .. word1 .. "/" .. word2 .. "/" .. "gc"
+				vim.cmd(w)
+			end,
+			"Substitute in file (confirm)",
+		},
 	},
 
 	g = {
@@ -261,7 +300,7 @@ local mappings = {
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-		t = { "<cmd>ToggleTermToggleAll<cr>", "ToggleTermToggleAll" },
+		t = { "<cmd>ToggleTermToggleAll<cr>", "Toggle all terminals" },
 	},
 
 	u = {
@@ -269,6 +308,7 @@ local mappings = {
 		c = { "<cmd>VCoolor<cr>", "Color picker" },
 		["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 		["M"] = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
+		["t"] = { ":luafile ~/.config/nvim/lua/shahbaz/toggle-colorscheme.lua<cr>", "Toggle light/dark mode" },
 	},
 }
 
@@ -282,7 +322,17 @@ local vopts = {
 }
 local vmappings = {
 	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
-	["s"] = { "Substitute" },
+	-- ["s"] = { "Substitute" },
+	-- '<,'>s/pee/poo/g
+	v = {
+		function()
+			local word1 = vim.fn.input("find: ", "")
+			local word2 = vim.fn.input("replace with: ", "")
+			local w = ":'<,'>s/" .. word1 .. "/" .. word2 .. "/" .. "gc"
+			vim.cmd(w)
+		end,
+		"Substitute in visual (confirm)",
+	},
 }
 
 which_key.setup(setup)

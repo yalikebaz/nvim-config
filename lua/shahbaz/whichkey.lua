@@ -226,7 +226,7 @@ local mappings = {
 
 	o = {
 		name = "Options",
-		a = { "<cmd>set autochdir!<cr>", "Toggle auto-change directory" },
+		a = { "<cmd>set autochdir!<cr>:echo 'setting changed to: '|set autochdir?<cr>", "Toggle auto-change directory" },
 		c = { "<cmd>set ignorecase!<cr>", "Toggle case sensitive search/replace" },
 		r = { "<cmd>set relativenumber!<cr>", "Toggle relative line number" },
 		n = { "<cmd>set number!<cr>", "Toggle line number" },

@@ -10,6 +10,7 @@ shift j/k: go up and down in the big panel
 g: view reset options. reset soft stages your changes, while reset hard changes your files to match the commit. hard reset is similar to just dropping commit
 space: stages a change
 a: stages all changes
+z: undo/go back
 
 . and , can scroll pages in the panels
 

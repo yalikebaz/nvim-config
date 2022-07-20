@@ -41,3 +41,5 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to workhorse
 vim.cmd "set autochdir" -- Auto change directory, makes iTerm cd into the cwd
+
+-- :autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr> --This will automatically close the quickfix list after selecting a file from it

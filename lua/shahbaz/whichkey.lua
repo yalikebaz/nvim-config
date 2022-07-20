@@ -118,6 +118,9 @@ local mappings = {
 
 	f = {
 		name = "File",
+		-- l = { "<cmd>:lopen<cr>", "Location list" },
+		l = { "<cmd>:Telescope loclist<cr>", "Location list" },
+		e = { ":call setloclist(0,[])<cr>:lua print('loclist emptied!')<cr>)", "Empty location list" },
 		s = { "Substitute" },
 		c = { "Substitute under cursor" },
 		["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
@@ -165,7 +168,6 @@ local mappings = {
 			"Prev Diagnostic",
 		},
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" }, -- FIX: what is this?
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {

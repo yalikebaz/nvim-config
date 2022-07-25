@@ -117,7 +117,7 @@ return packer.startup(function(use)
 	-- use("tree-sitter/tree-sitter-typescript")
 	use("windwp/nvim-autopairs") -- Autopair brackets, integrates with both cmp and treesitter
 	use("p00f/nvim-ts-rainbow") -- Rainbow brackets
-	use("JoosepAlviste/nvim-ts-context-commentstring") -- Contextual comments for tsx... TODO: not working
+	use("JoosepAlviste/nvim-ts-context-commentstring") -- Contextual comments for tsx
 	use({ -- Auto tagging for html
 		"windwp/nvim-ts-autotag",
 		config = function()

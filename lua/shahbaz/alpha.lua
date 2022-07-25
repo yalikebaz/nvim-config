@@ -27,7 +27,6 @@ dashboard.section.header.val = {
 }
 dashboard.section.buttons.val = {
 	-- For your own icons: https://www.nerdfonts.com/cheat-sheet
-	-- TODO: Toggle light/dark theme button
 	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
 	dashboard.button("e", "פּ  Open Nvim Tree", "<cmd>NvimTreeToggle<cr>"),
 	dashboard.button("m", "  Bookmarks", ":Telescope vim_bookmarks all<CR>"),

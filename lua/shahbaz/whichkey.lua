@@ -81,10 +81,9 @@ local opts = {
 }
 
 local mappings = {
-	-- TODO: make a group for buffers: Bdelete!, bufferlinemovenext, bufferlinemoveprev...i dont think the last 2 work properly
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	-- ["P"] = { "<cmd>Telescope projects<cr>", "Projects" }, -- TODO: what is this?
+	-- ["P"] = { "<cmd>Telescope projects<cr>", "Projects" }, -- TODO: what is this? https://github.com/nvim-telescope/telescope-project.nvim
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["v"] = { "<cmd>vsplit<cr>", "Vert split" },
 	["w"] = { "<cmd>w!<CR>", "Save" },

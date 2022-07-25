@@ -290,8 +290,8 @@ local mappings = {
 			":BufferLinePick<cr>",
 			"Pick buffer",
 		},
-		h = { "<cmd>:BufferLineMoveNext<cr>", "Move buffer right" },
-		l = { "<cmd>:BufferLineMovePrev<cr>", "Move buffer left" },
+		l = { "<cmd>:BufferLineMoveNext<cr>", "Move buffer right" },
+		h = { "<cmd>:BufferLineMovePrev<cr>", "Move buffer left" },
 		t = { "<cmd>:Telescope buffers<cr>", "Show all buffers" },
 
 		g = {

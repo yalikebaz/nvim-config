@@ -13,6 +13,8 @@ require("shahbaz.bufferline")
 require("shahbaz.alpha")
 require("shahbaz.toggleterm")
 require("shahbaz.whichkey")
+require("shahbaz.session")
+
 
 -- Colorscheme
 require("shahbaz.colorscheme")

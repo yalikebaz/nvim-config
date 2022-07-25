@@ -44,6 +44,7 @@ packer.init({
 -- My plugins here, format is: `use:("user/repo")`
 return packer.startup(function(use)
 	-- Miscellaneous
+  use("Shatur/neovim-session-manager")
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }) -- Better vim folding
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim

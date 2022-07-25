@@ -230,7 +230,10 @@ local mappings = {
 			"<cmd>set autochdir!<cr>:echo 'setting changed to: '|set autochdir?<cr>",
 			"Toggle auto-change directory",
 		},
-		c = { "<cmd>set ignorecase!<cr>", "Toggle case sensitive search/replace" },
+		c = {
+			"<cmd>set ignorecase!<cr>:echo 'setting changed to: '|set ignorecase?<cr>",
+			"Toggle case sensitive search/replace",
+		},
 		r = { "<cmd>set relativenumber!<cr>", "Toggle relative line number" },
 		n = { "<cmd>set number!<cr>", "Toggle line number" },
 		w = { "<cmd>set wrap!<cr>", "Toggle word wrap" },
@@ -282,6 +285,22 @@ local mappings = {
 			"Open REST client (VRC)",
 		},
 		c = { ":call VrcQuery()<cr><C-w>l:only<cr>", "Call endpoint" },
+	},
+
+	S = {
+		name = "Session manager",
+		s = {
+			":SessionManager save_current_session<cr>",
+			"Save current session",
+		},
+		l = {
+			":SessionManager load_session<cr>",
+			"Load session",
+		},
+		d = {
+			":SessionManager delete_session<cr>",
+			"Delete session",
+		},
 	},
 
 	b = {

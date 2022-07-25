@@ -1,6 +1,6 @@
 -- NIGHT
-Colorscheme = "nightfox"
--- Colorscheme = "codemonkey"
+-- Colorscheme = "nightfox"
+Colorscheme = "codemonkey"
 
 -- DAY
 -- Colorscheme = "catppuccin"

@@ -32,6 +32,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("e", "פּ  Open Nvim Tree", "<cmd>NvimTreeToggle<cr>"),
 	dashboard.button("m", "  Bookmarks", ":Telescope vim_bookmarks all<CR>"),
 	dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
+	dashboard.button("s", "﨟 Sessions", ":SessionManager load_session<CR>"),
 	dashboard.button("F", "  Find text", ":Telescope live_grep <CR>"),
 	dashboard.button("p", "  Plugin configuration", ":e ~/.config/nvim/lua/shahbaz/plugins.lua <CR>|:41<CR>"),
 	dashboard.button(

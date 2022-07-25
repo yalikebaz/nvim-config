@@ -226,7 +226,10 @@ local mappings = {
 
 	o = {
 		name = "Options",
-		a = { "<cmd>set autochdir!<cr>:echo 'setting changed to: '|set autochdir?<cr>", "Toggle auto-change directory" },
+		a = {
+			"<cmd>set autochdir!<cr>:echo 'setting changed to: '|set autochdir?<cr>",
+			"Toggle auto-change directory",
+		},
 		c = { "<cmd>set ignorecase!<cr>", "Toggle case sensitive search/replace" },
 		r = { "<cmd>set relativenumber!<cr>", "Toggle relative line number" },
 		n = { "<cmd>set number!<cr>", "Toggle line number" },
@@ -282,6 +285,26 @@ local mappings = {
 	},
 
 	b = {
+		name = "Buffers",
+		p = {
+			":BufferLinePick<cr>",
+			"Pick buffer",
+		},
+		h = { "<cmd>:BufferLineMoveNext<cr>", "Move buffer right" },
+		l = { "<cmd>:BufferLineMovePrev<cr>", "Move buffer left" },
+		t = { "<cmd>:Telescope buffers<cr>", "Show all buffers" },
+
+		g = {
+			function()
+				local num = vim.fn.input("Type buffer number: ", "")
+				local cmd = "BufferLineGoToBuffer " .. num
+				vim.cmd(cmd)
+			end,
+			"Go to buffer number",
+		},
+	},
+
+	B = {
 		name = "Browse",
 		r = {
 			function()

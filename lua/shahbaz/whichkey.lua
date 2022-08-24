@@ -87,6 +87,7 @@ local mappings = {
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["v"] = { "<cmd>vsplit<cr>", "Vert split" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
+	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Toggle comment" },
 
 	s = {
 		name = "Search",
@@ -121,7 +122,7 @@ local mappings = {
 		-- l = { "<cmd>:lopen<cr>", "Location list" },
 		l = { "<cmd>:Telescope loclist<cr>", "Location list" },
 		e = { ":call setloclist(0,[])<cr>:lua print('loclist emptied!')<cr>)", "Empty location list" },
-		["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
+		["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
 
 		s = {
 			function()
@@ -364,7 +365,7 @@ local vopts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 local vmappings = {
-	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
+	["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
 	-- ["s"] = { "Substitute" },
 	-- '<,'>s/pee/poo/g
 	v = {

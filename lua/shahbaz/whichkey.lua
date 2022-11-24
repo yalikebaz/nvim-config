@@ -325,14 +325,24 @@ local mappings = {
 
 	B = {
 		name = "Browse",
+		g = {
+			function()
+				require("browse").input_search()
+			end,
+			"Google",
+		},
 		r = {
 			function()
 				require("browse").open_bookmarks({ bookmarks = Bookmarks })
 			end,
 			"References",
 		},
-		d = { "<cmd>lua require('browse.devdocs').search()<cr>", "Devdocs" },
-		g = { "<cmd>lua require('browse').input_search()<cr>", "Google" },
+		d = {
+			function()
+				require("browse.devdocs").search()
+			end,
+			"Devdocs function",
+		},
 	},
 
 	t = {

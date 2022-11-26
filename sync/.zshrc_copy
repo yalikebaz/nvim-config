@@ -21,13 +21,27 @@ alias n="nvim"
 # ---
 # FAV  NAVIGATION
 # ---
-alias cdn="cd ~/.config/nvim; nvim lua/shahbaz/plugins.lua"
-# alias cdn="cd ~/.config/nvim"
+alias cdn="cd ~/.config/nvim"
+alias cdnn="cd ~/.config/nvim; nvim lua/shahbaz/plugins.lua"
 alias cddev="cd ~/Documents/Dev\ Projects"
 alias cdo="cd ~/Documents/Obsidian/Zettelkasten/"
 alias cdon="cd ~/Documents/Obsidian/Zettelkasten/;n .obsidian.vimrc"
-
+alias cdt="cd ~/.config/tmux"
+alias cdtn="cd ~/.config/tmux;n tmux.conf"
 alias zshrc="nvim ~/.zshrc"
+
+# ---
+# TMUX
+# ---
+alias t='tmux attach || tmux new-session' # Attaches tmux to the last session; creates a new session if none exists.
+alias ta='tmux attach -t' # Attaches tmux to a session (example: ta mySession)
+alias tn='tmux new -s' # E.g. tn mySession
+alias tl='tmux list-sessions'
+alias tk='tmux kill-session -t'
+alias td='tmux detach'
+alias tr='tmux rename-session -t' # tmux rename-session -t [current-name] [new-name]
+alias th='cd ~/.local/share/tmux/resurrect/;nvim' # Access tmux resurrect history
+
 # ---
 # GIT
 # ---

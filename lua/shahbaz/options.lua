@@ -33,7 +33,7 @@ vim.opt.wrap = false                            -- display lines as one long lin
 vim.opt.scrolloff = 999                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
-vim.opt.cmdheight = 0                           -- setting command height
+vim.opt.cmdheight = 1                           -- setting command height
 vim.opt.winbar = "%f"                           -- Winbar, see :h winbar
 
 

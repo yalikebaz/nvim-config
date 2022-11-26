@@ -11,7 +11,7 @@ require("shahbaz.nvim-tree")
 require("shahbaz.telescope")
 require("shahbaz.bufferline")
 require("shahbaz.alpha")
-require("shahbaz.toggleterm")
+require("shahbaz.toggleterm") -- Don't use this as a terminal anymore in favor of tmux. Still useful for lazygit though.
 require("shahbaz.whichkey")
 require("shahbaz.session")
 

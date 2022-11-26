@@ -1,4 +1,4 @@
-Lazygit isn't technically a nvim plugin, but i guess i find myself using it a lot in nvim,
+Lazygit isn't technically a nvim plugin, but I guess I find myself using it a lot in nvim,
 so here's some things to remember.
 
 # keybindings:

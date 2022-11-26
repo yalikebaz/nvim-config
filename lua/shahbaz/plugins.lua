@@ -44,6 +44,7 @@ packer.init({
 -- My plugins here, format is: `use:("user/repo")`
 return packer.startup(function(use)
 	-- Miscellaneous
+  use("christoomey/vim-tmux-navigator") -- tmux and split window navigation
 	use("Shatur/neovim-session-manager")
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }) -- Better vim folding
 	use("wbthomason/packer.nvim") -- Have packer manage itself
@@ -144,7 +145,7 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
-	-- Terminal
+	-- Terminal. I use tmux now, but this is still useful for lazygit
 	use("akinsho/toggleterm.nvim")
 
 	-- Vim surround

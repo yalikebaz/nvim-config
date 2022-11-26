@@ -15,7 +15,6 @@ require("shahbaz.toggleterm") -- Don't use this as a terminal anymore in favor o
 require("shahbaz.whichkey")
 require("shahbaz.session")
 
-
 -- Colorscheme
 require("shahbaz.colorscheme")
 

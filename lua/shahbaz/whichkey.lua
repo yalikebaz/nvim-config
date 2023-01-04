@@ -3,8 +3,6 @@ if not status_ok then
 	return
 end
 
-require("shahbaz.browseConfig")
-
 local setup = {
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
@@ -98,10 +96,11 @@ local mappings = {
 			"<cmd>Telescope find_files<cr>",
 			"Find files",
 		},
-		F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+		-- F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+		F = { "<cmd>Telescope live_grep <cr>", "Find Text" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-		m = { "<cmd>Telescope vim_bookmarks all theme=ivy<cr>", "All marks" },
-		M = { "<cmd>Telescope vim_bookmarks current_file theme=ivy<cr>", "Marks in current file" },
+		m = { "<cmd>Telescope vim_bookmarks all", "All marks" },
+		M = { "<cmd>Telescope vim_bookmarks current_file<cr>", "Marks in current file" },
 		-- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" }, --dunno wtf man pages are
 		c = {
 			"<cmd>lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown({enable_preview=true}))<cr>",
@@ -119,8 +118,10 @@ local mappings = {
 
 	f = {
 		name = "File",
-		-- l = { "<cmd>:lopen<cr>", "Location list" },
-		l = { "<cmd>:Telescope loclist<cr>", "Location list" },
+		l = { "<cmd>:lopen<cr>", "Location list" },
+		-- l = { "<cmd>:Telescope loclist<cr>", "Location list" },
+		-- l = { "<cmd>:lua require('telescope.builtin').loclist()<cr>", "Location list" },
+
 		e = { ":call setloclist(0,[])<cr>:lua print('loclist emptied!')<cr>)", "Empty location list" },
 		["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
 
@@ -195,7 +196,7 @@ local mappings = {
 			"<cmd>Telescope diagnostics<cr>",
 			"Document Diagnostics",
 		},
-		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+		f = { "<cmd>lua vim.lsp.buf.format({async = true})<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = {

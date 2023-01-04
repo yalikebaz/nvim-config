@@ -14,7 +14,8 @@ telescope.setup({
 		prompt_prefix = " ",
 		selection_caret = "   ",
 		path_display = { "smart" },
-		layout_config = { width = 0.99, preview_width = 0.38 },
+    layout_strategy = "vertical",
+		-- layout_config = { width = 0.99, preview_width = 0.38 }, -- BUG: causes an issue with browse.nvim
 
 		mappings = {
 			i = {
@@ -46,8 +47,8 @@ telescope.setup({
 				-- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 				-- ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 				-- ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-				["<C-l>"] = actions.send_selected_to_loclist + actions.open_loclist,
-				["<C-a>"] = actions.send_to_loclist + actions.open_loclist,
+				["<C-s>"] = actions.send_selected_to_loclist + actions.open_loclist,
+				["<C-l>"] = actions.send_to_loclist + actions.open_loclist,
 				-- ["<C-l>"] = actions.complete_tag,
 				["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
 			},
@@ -62,8 +63,8 @@ telescope.setup({
 				["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
 				["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
 				-- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-				["<C-l>"] = actions.send_selected_to_loclist + actions.open_loclist,
-				["<C-a>"] = actions.send_to_loclist + actions.open_loclist,
+				["<C-s>"] = actions.send_selected_to_loclist + actions.open_loclist,
+				["<C-l>"] = actions.send_to_loclist + actions.open_loclist,
 				["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
 				["j"] = actions.move_selection_next,
@@ -110,7 +111,7 @@ telescope.setup({
 			filetypes = { "png", "webp", "jpg", "jpeg" },
 			find_cmd = "rg", -- find command (defaults to `fd`)
 		},
-		-- TODO: why isnt this working
+		-- TODO: What am I trying to do here? Rename the window title?
 		vim_bookmarks = {
 			width_text = 40,
 			width_line = 1,

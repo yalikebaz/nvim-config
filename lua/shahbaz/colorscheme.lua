@@ -19,7 +19,7 @@ SetScheme(Colorscheme)
 -- vim.cmd("hi CursorLine guibg=gray30") -- Changing Line number color
 
 -- Colorscheme specific configs
-function SetSpecifics()
+function SetIndentColors()
 	if Colorscheme == "catppuccin" then
 		vim.g.catppuccin_flavour = "latte" -- latte, frappe, macchiato, mocha
 		vim.cmd([[colorscheme catppuccin]])
@@ -42,6 +42,6 @@ function SetSpecifics()
 	end
 end
 
-SetSpecifics()
+SetIndentColors()
 
 return Colorscheme

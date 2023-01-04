@@ -1,16 +1,15 @@
 require("shahbaz.alpha")
 require("shahbaz.colorscheme")
 
-if Colorscheme == "catppuccin" then
-	SetScheme("codemonkey")
-	Colorscheme = "codemonkey"
+if Colorscheme == "nightfox" then
+	SetScheme("catppuccin-latte")
+	Colorscheme = "catppuccin-latte"
 else
-	SetScheme("catppuccin")
-	Colorscheme = "catppuccin"
+	SetScheme("nightfox")
+	Colorscheme = "nightfox"
 end
 
-SetSpecifics()
--- FIX: the footer of alpha doesnt immediately show the right colorscheme (it does but only after you come back to it)
+SetIndentColors()
 -- FIX: i think after changing themes, the set specifics isnt working
 
 local dashboard = require("alpha.themes.dashboard")

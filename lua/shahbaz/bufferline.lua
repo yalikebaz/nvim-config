@@ -103,8 +103,8 @@ bufferline.setup({
 			italic = true,
 		},
 		buffer_visible = {
-			fg = { attribute = "fg", highlight = activeColor },
-			bg = { attribute = "bg", highlight = activeColor },
+			fg = "#ffffff",
+			bg = activeColor,
 		},
 
 		-- 	close_button = {

@@ -33,13 +33,12 @@ alias zshrc="nvim ~/.zshrc"
 # ---
 # TMUX
 # ---
-alias t='tmux attach || tmux new-session' # Attaches tmux to the last session; creates a new session if none exists.
-alias ta='tmux attach -t' # Attaches tmux to a session (example: ta mySession)
+alias t='tmux attach -t' # Attaches tmux to a session (example: ta mySession)
 alias tn='tmux new -s' # E.g. tn mySession
 alias tl='tmux list-sessions'
-alias tk='tmux kill-session -t'
+alias tk='tmux kill-session -t '
 alias td='tmux detach'
-alias tr='tmux rename-session -t' # tmux rename-session -t [current-name] [new-name]
+alias tr='tmux rename-session -t ' # tmux rename-session -t [current-name] [new-name]
 alias th='cd ~/.local/share/tmux/resurrect/;nvim' # Access tmux resurrect history
 
 # ---
@@ -81,3 +80,6 @@ alias ns="npm start"
 # PATH 
 # mySQL and lvim stuff
 export PATH=${PATH}:/usr/local/mysql/bin/:~/.local/bin
+
+alias simple-nvim=XDG_CONFIG_HOME=~/.simple-config nvim
+alias default-nvim=XDG_CONFIG_HOME=~/.config

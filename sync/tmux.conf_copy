@@ -33,13 +33,16 @@ bind -r m resize-pane -Z # maximize pane
 
 set -g mouse on
 
-# vim movements for tmux copy mode
+# Vim movements for tmux copy mode
+## YT vid
 set-window-option -g mode-keys vi
-
 bind-key -T copy-mode-vi 'v' send -X begin-selection # start selecting text with "v"
-bind-key -T copy-mode-vi 'y' send -X copy-selection # copy text with "y"
-
+# bind-key -T copy-mode-vi 'y' send -X copy-selection # copy text with "y"
 unbind -T copy-mode-vi MouseDragEnd1Pane # don't exit copy mode after dragging with mouse
+
+## Random guide: https://www.jdeen.com/blog/tmux-on-macos-copy-to-system-clipboard
+bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel 'reattach-to-user-namespace pbcopy'
+bind-key -T copy-mode-vi Enter send -X copy-pipe-and-cancel 'reattach-to-user-namespace pbcopy'
 
 # -----------
 # TPM PLUGINS
@@ -54,7 +57,8 @@ set -g @plugin 'christoomey/vim-tmux-navigator'
 set -g @plugin 'jimeh/tmux-themepack' # to configure tmux theme
 
 # set -g @themepack 'powerline/default/cyan' # theme for tmux. See here for more: https://github.com/jimeh/tmux-themepack
-set -g @themepack 'powerline/default/yellow' # theme for tmux. See here for more: https://github.com/jimeh/tmux-themepack
+# set -g @themepack 'powerline/default/yellow' # theme for tmux. See here for more: https://github.com/jimeh/tmux-themepack
+set -g @themepack 'powerline/default/blue' # theme for tmux. See here for more: https://github.com/jimeh/tmux-themepack
 
 set -g @plugin 'tmux-plugins/tmux-resurrect' # persist tmux sessions after computer restart
 set -g @plugin 'tmux-plugins/tmux-continuum' # automatically saves sessions for you every 15 minutes

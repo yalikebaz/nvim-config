@@ -116,6 +116,12 @@ local mappings = {
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 	}, -- By the way, you can nest groups! Just follow the same syntax
 
+	h = {
+		name = "Harpoon",
+		a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add to harpoon" },
+		h = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon menu" },
+	},
+
 	f = {
 		name = "File",
 		l = { "<cmd>:lopen<cr>", "Location list" },
@@ -198,7 +204,8 @@ local mappings = {
 		},
 		f = { "<cmd>lua vim.lsp.buf.format({async = true})<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
-		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+		-- I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+		m = { "<cmd>Mason<cr>", "Mason installer info" },
 		j = {
 			"<cmd>lua vim.diagnostic.goto_next()<CR>",
 			"Next Diagnostic",
@@ -312,7 +319,7 @@ local mappings = {
 		},
 		l = { "<cmd>:BufferLineMoveNext<cr>", "Move buffer right" },
 		h = { "<cmd>:BufferLineMovePrev<cr>", "Move buffer left" },
-		t = { "<cmd>:Telescope buffers<cr>", "Show all buffers" },
+		a = { "<cmd>:Telescope buffers<cr>", "Show all buffers" },
 
 		g = {
 			function()

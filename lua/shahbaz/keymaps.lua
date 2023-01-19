@@ -58,6 +58,26 @@ keymap("i", "jk", "<ESC>", opts) -- Press jk fast to enter
 keymap("i", "kj", "<ESC>", opts)
 keymap("i", "ww", "<ESC>:w <CR>", opts) -- Save
 
+-- Snippets --
+-- Use <C-n> and <C-p> to jump back/forward respectively through snippets
+keymap(
+  "i",
+  "<C-n>",
+  -- "lua require('luasnip').luasnip#expand_or_jumpable() ? '' : '<Tab>'",
+  "<esc>:lua require('luasnip').jump(1)<CR>",
+  opts
+)
+keymap(
+  "s",
+  "<C-n>",
+  -- "lua require('luasnip').luasnip#expand_or_jumpable() ? '' : '<Tab>'",
+  "<esc>:lua require('luasnip').jump(1)<CR>",
+  opts
+)
+
+keymap("i", "<C-p>", "<esc>:lua require('luasnip').jump(-1)<CR>", opts)
+keymap("s", "<C-p>", "<esc>:lua require('luasnip').jump(-1)<CR>", opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", ">", ">gv", opts)

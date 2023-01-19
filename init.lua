@@ -19,9 +19,8 @@ require("shahbaz.session")
 require("shahbaz.colorscheme")
 
 -- CMP, LSP and Treesitter
-require("shahbaz.cmp")
-require("shahbaz.lsp")
 require("shahbaz.treesitter")
+require("shahbaz.lspzero")
 
 -- Context related
 require("shahbaz.todo-comments")

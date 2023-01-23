@@ -95,11 +95,6 @@ _G.packer_plugins = {
     path = "/Users/shahbazsiddiqui/.local/share/nvim/site/pack/packer/start/browse.nvim",
     url = "https://github.com/lalitmee/browse.nvim"
   },
-  ["bufferline.nvim"] = {
-    loaded = true,
-    path = "/Users/shahbazsiddiqui/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
-    url = "https://github.com/akinsho/bufferline.nvim"
-  },
   catppuccin = {
     loaded = true,
     path = "/Users/shahbazsiddiqui/.local/share/nvim/site/pack/packer/start/catppuccin",
@@ -189,11 +184,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/shahbazsiddiqui/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["neovim-session-manager"] = {
-    loaded = true,
-    path = "/Users/shahbazsiddiqui/.local/share/nvim/site/pack/packer/start/neovim-session-manager",
-    url = "https://github.com/Shatur/neovim-session-manager"
   },
   ["nightfox.nvim"] = {
     loaded = true,

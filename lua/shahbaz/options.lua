@@ -10,7 +10,7 @@ vim.opt.ignorecase = true                       -- ignore case in search pattern
 vim.opt.mouse = ""                              -- disallow the mouse to be used in neovim, see :h mouse for enabling options
 vim.opt.pumheight = 10                          -- pop up menu height
 vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 2                         -- always show tabs
+vim.opt.showtabline = 1                         -- only show tabs if i have multiple open (which will never happen bc i dont use them)
 vim.opt.smartcase = true                        -- smart case
 vim.opt.smartindent = true                      -- make indenting smarter again
 vim.opt.splitbelow = true                       -- force all horizontal splits to go below current window
@@ -21,9 +21,12 @@ vim.opt.timeoutlen = 500                       -- time to wait for a mapped sequ
 vim.opt.undofile = true                         -- enable persistent undo
 vim.opt.updatetime = 300                        -- faster completion (4000ms default)
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+
 vim.opt.expandtab = true                        -- convert tabs to spaces
-vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
+vim.opt.shiftwidth = 4                          -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 4                             -- insert 2 spaces for a tab
+vim.opt.softtabstop = 4
+
 vim.opt.cursorline = true                       -- highlight the current line
 vim.opt.relativenumber = true                   -- set relative numbered lines
 vim.opt.number = true                           -- set relative numbered lines

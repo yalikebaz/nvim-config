@@ -81,7 +81,13 @@ lualine.setup({
     sections = {
         lualine_a = { mode },
         lualine_b = { branch, diagnostics },
-        lualine_c = { { isModified, color = { fg = '#0F141A', bg = 'orange' } } },
+        lualine_c = {
+            {
+                "filename",
+                path = 1,
+            },
+            { isModified, color = { fg = '#0F141A', bg = 'orange' } }
+        },
         -- lualine_c = {
         --   {
         --     "filename",

@@ -88,6 +88,7 @@ return packer.startup(function(use)
 
     -- File formatting --
     use("tpope/vim-surround") -- Vim surround
+    use("lukas-reineke/indent-blankline.nvim") -- Shows indent lines
 
     -- Snippets
     use("L3MON4D3/LuaSnip") --snippet engine
@@ -107,7 +108,6 @@ return packer.startup(function(use)
             require("Comment").setup()
         end,
     })
-    use("lukas-reineke/indent-blankline.nvim") -- Shows indent lines.
     use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }) -- a better TODO manager
     use("KabbAmine/vCoolor.vim") -- color picker
 

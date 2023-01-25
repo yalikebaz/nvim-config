@@ -26,7 +26,7 @@ require("shahbaz.todo-comments")
 require("shahbaz.comment")
 require("shahbaz.autopairs")
 require("shahbaz.lualine")
--- require("shahbaz.indent-blankline") -- Trying to not use
+require("shahbaz.indent-blankline")
 require("shahbaz.gitsigns")
 require("shahbaz.ufo")
 require("shahbaz.browse")

@@ -37,7 +37,7 @@ vim.opt.scrolloff = 10                          -- Max lines padding
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 vim.opt.cmdheight = 1                           -- setting command height
-vim.opt.winbar = "%f"                           -- Winbar, see :h winbar
+vim.opt.winbar = "%y %m"                    -- Winbar, see :h winbar. I've disabled this shit cause relative file path isn't as consistent as lualine
 
 
 vim.opt.shortmess:append "c"

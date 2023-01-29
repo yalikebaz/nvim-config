@@ -62,7 +62,12 @@ end
 
 local isModified = function()
     if vim.o.modified == true then
+        vim.cmd(":hi WinBar guifg='orange'")
+        vim.opt.winbar = "%f [+]"
         return "-- DOCUMENT MODIFIED --"
+    else
+        vim.cmd(":hi WinBar guifg='grey' guibg=..")
+        vim.opt.winbar = "%f"
     end
     return ""
 end

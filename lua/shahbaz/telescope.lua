@@ -11,11 +11,12 @@ local actions = require("telescope.actions")
 telescope.setup({
     defaults = {
         file_ignore_patterns = { ".[lock].json", "node_modules" },
-        initial_mode = "normal",
+        initial_mode = "insert",
         prompt_prefix = " ",
         selection_caret = "   ",
         path_display = { "smart" },
         layout_strategy = "vertical",
+
         -- layout_config = { width = 0.99, preview_width = 0.38 }, -- BUG: causes an issue with browse.nvim
 
         mappings = {
@@ -100,10 +101,13 @@ telescope.setup({
         -- }
         -- Now the picker_config_key will be applied every time you call this
         -- builtin picker
-        vim_bookmarks = {
-            width_text = 40,
-            prompt_title = "test",
+        buffers = {
+            initial_mode = "normal" -- Opens telescope in normal mode when running :Telescope buffers
         },
+        -- vim_bookmarks = { -- FIX: Lol I was confused writing this. Not sure what i was trying to achieve.
+        --     width_text = 40,
+        --     prompt_title = "test",
+        -- },
     },
     extensions = {
         -- Your extension configuration goes here:

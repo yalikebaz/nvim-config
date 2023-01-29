@@ -20,6 +20,7 @@ require("shahbaz.colorscheme")
 -- CMP, LSP and Treesitter
 require("shahbaz.treesitter")
 require("shahbaz.lspzero")
+require("shahbaz.null-ls")
 
 -- Context related
 require("shahbaz.todo-comments")
@@ -30,3 +31,6 @@ require("shahbaz.indent-blankline")
 require("shahbaz.gitsigns")
 require("shahbaz.ufo")
 require("shahbaz.browse")
+
+-- TODO: This is applying here, but not in options.lua
+vim.cmd ":hi VertSplit guifg='white'"

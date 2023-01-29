@@ -17,9 +17,9 @@ vim.opt.splitbelow = true                       -- force all horizontal splits t
 vim.opt.splitright = true                       -- force all vertical splits to go to the right of current window
 vim.opt.swapfile = false                        -- creates a swapfile
 vim.opt.termguicolors = true                    -- set term gui colors (most terminals support this)
-vim.opt.timeoutlen = 500                       -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.timeoutlen = 500                        -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.undofile = true                         -- enable persistent undo
-vim.opt.updatetime = 50                        -- faster completion (4000ms default)
+vim.opt.updatetime = 50                         -- faster completion (4000ms default)
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 
 vim.opt.expandtab = true                        -- convert tabs to spaces
@@ -37,14 +37,29 @@ vim.opt.scrolloff = 10                          -- Max lines padding
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 vim.opt.cmdheight = 1                           -- setting command height
-vim.opt.winbar = "%y %m"                    -- Winbar, see :h winbar. I've disabled this shit cause relative file path isn't as consistent as lualine
+vim.opt.winbar = "%f"                           -- Winbar, see :h winbar. I've disabled this shit cause relative file path isn't as consistent as lualine
 
+-- delme
+-- local get_filename = function(path)
+--     local filename_with_relative_path = vim.fn.substitute(path, vim.fn.getcwd() .. "/", "", "")
+--     local filename = filename_with_relative_path:match("([^/]+)$")
+--
+--     if is_empty(filename) then                                         
+--         return " %f"                                                                                                               
+--     end
+--
+--     return filename
+-- end
+--
+-- local filename = get_filename(vim.fn.expand("%"))
+-- vim.opt_local.winbar = " " .. filename .. " %m %=%l:%v "
+--
 
 vim.opt.shortmess:append "c"
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to workhorse. Not even sure what this is?
+vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work. Not even sure what this is?
 vim.cmd "set noautochdir" -- Auto change directory, makes iTerm cd into the cwd
 
 -- :autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr> --This will automatically close the quickfix list after selecting a file from it

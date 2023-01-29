@@ -87,6 +87,7 @@ return packer.startup(function(use)
     use("nvim-telescope/telescope-media-files.nvim") -- able to view media files in the telescope preview
 
     -- File formatting --
+    use("jose-elias-alvarez/null-ls.nvim") -- null-ls for formatting where LSP servers cannot themselves. See https://www.reddit.com/r/neovim/comments/y26hw2/lspzero_lspzeroformat_lsp_format_request_failed/
     use("tpope/vim-surround") -- Vim surround
     use("lukas-reineke/indent-blankline.nvim") -- Shows indent lines
 

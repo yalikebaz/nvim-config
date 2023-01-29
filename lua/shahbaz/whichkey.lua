@@ -82,9 +82,12 @@ local mappings = {
     ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
-    ["v"] = { "<cmd>vsplit<cr>", "Vert split" },
     ["w"] = { "<cmd>w!<CR>", "Save" },
     ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Toggle comment" },
+    ["v"] = { "<cmd>vsplit<cr>", "Vert split" },
+
+    ["b"] = { "<cmd>:Telescope buffers<cr>", "Show all buffers" },
+    [" "] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Show harpoon menu" },
 
     s = {
         name = "Search",
@@ -92,7 +95,9 @@ local mappings = {
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         -- c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         f = {
-            "<cmd>Telescope find_files<cr>",
+            -- "<cmd>Telescope find_files<cr>",
+            -- ":lua require('telescope.builtin').find_files(require('telescope.themes').get_cursor())<cr>",
+            ":lua require('telescope.builtin').find_files()<cr>",
             "Find files",
         },
         -- F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
@@ -117,7 +122,8 @@ local mappings = {
 
     h = {
         name = "Harpoon",
-        a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add to harpoon" },
+        a = { "<cmd>lua require('harpoon.mark').add_file()<cr>|<cmd>lua print('File added to harpoon')<cr>",
+            "Add to harpoon" },
         h = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon menu" },
     },
 
@@ -309,8 +315,6 @@ local mappings = {
             "Delete session",
         },
     },
-
-    [" "] = { "<cmd>:Telescope buffers<cr>", "Show all buffers" },
 
     -- b = {
     --   name = "Buffers",

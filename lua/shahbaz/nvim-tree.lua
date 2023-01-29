@@ -141,6 +141,22 @@ require("nvim-tree").setup({
     sort_by = "case_sensitive",
     prefer_startup_root = true,
     sync_root_with_cwd = true,
+    diagnostics = {
+        enable = true,
+        show_on_dirs = true,
+        show_on_open_dirs = true,
+        debounce_delay = 50,
+        severity = {
+            min = vim.diagnostic.severity.HINT,
+            max = vim.diagnostic.severity.ERROR,
+        },
+        icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
+        },
+    },
     update_focused_file = {
         enable = true,
         update_root = true
@@ -157,8 +173,10 @@ require("nvim-tree").setup({
     },
     renderer = {
         group_empty = true,
+        highlight_opened_files = "all", -- "none", "icon", "name", or "all"
     },
     filters = {
         dotfiles = true,
     },
 })
+vim.cmd(":hi NvimTreeRootFolder guifg='grey'") -- FIX: Why isn't this working? The command is right, but it's not being called for some reason

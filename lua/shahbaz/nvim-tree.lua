@@ -164,6 +164,7 @@ require("nvim-tree").setup({
     -- respect_buf_cwd = true,
     view = {
         adaptive_size = true,
+        preserve_window_proportions = true,
         mappings = {
             list = {
                 { key = "u", action = "dir_up" },

@@ -181,3 +181,4 @@ require("nvim-tree").setup({
     },
 })
 vim.cmd(":hi NvimTreeRootFolder guifg='grey'") -- FIX: Why isn't this working? The command is right, but it's not being called for some reason
+-- TODO: Consider switching to neo-tree. Since nvim-tree opens files with absolute paths, which makes winbar annoying

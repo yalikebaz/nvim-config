@@ -89,7 +89,7 @@ local mappings = {
     ["b"] = { "<cmd>:Telescope buffers<cr>", "Show all buffers" },
     [" "] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Show harpoon menu" },
 
-    s = {
+    S = {
         name = "Search",
         a = { "<cmd>Alpha<cr>", "Alpha" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -179,7 +179,7 @@ local mappings = {
 
     g = {
         name = "Git",
-        g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+        g = { "<cmd>silent !~/.config/nvim/lazygit/lazygit.sh<cr>", "Lazygit" },
         j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
         k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
         l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -300,20 +300,11 @@ local mappings = {
         c = { ":call VrcQuery()<cr><C-w>l:only<cr>", "Call endpoint" },
     },
 
-    S = {
-        name = "Session manager",
-        s = {
-            ":SessionManager save_current_session<cr>",
-            "Save current session",
-        },
-        l = {
-            ":SessionManager load_session<cr>",
-            "Load session",
-        },
-        d = {
-            ":SessionManager delete_session<cr>",
-            "Delete session",
-        },
+    s = {
+        name = "Split",
+        v = { "<cmd>vsplit<cr>", "Vert. split" },
+        h = { "<cmd>split<cr>", "Hor. split", },
+        t = { "<cmd>tabedit %<cr>", "Open in new tab", },
     },
 
     -- b = {

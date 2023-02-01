@@ -11,7 +11,6 @@ require("shahbaz.nvim-tree")
 require("shahbaz.telescope")
 -- require("shahbaz.bufferline") -- Don't use this anymore. Leaving it in here in case I change my mind.
 require("shahbaz.alpha")
-require("shahbaz.toggleterm") -- Don't use this as a terminal anymore in favor of tmux. Still useful for lazygit though.
 require("shahbaz.whichkey")
 
 -- Colorscheme

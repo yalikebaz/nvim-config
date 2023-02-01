@@ -48,8 +48,6 @@ return packer.startup(function(use)
     use("wbthomason/packer.nvim") -- Have packer manage itself
 
     -- Navigation --
-    use("akinsho/toggleterm.nvim") -- Toggleable terminal. I use tmux now, but this is still useful for lazygit
-
     use 'nvim-tree/nvim-web-devicons' -- Pretty sure this is the exact same as the below. The guy updated the URL?
 
     use({

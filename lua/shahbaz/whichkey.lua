@@ -305,6 +305,18 @@ local mappings = {
         v = { "<cmd>vsplit<cr>", "Vert. split" },
         h = { "<cmd>split<cr>", "Hor. split", },
         t = { "<cmd>tabedit %<cr>", "Open in new tab", },
+        ["="] = { "<C-w>=", "Make splits equal size", },
+
+        m = {
+            name = "Move",
+            l = { "<C-w>r", "Move tab right/downwards" },
+            h = { "<C-w>R", "Move tab left/upwards" },
+            H = { "<C-w>H", "Move tab to far left", },
+            L = { "<C-w>L", "Move tab to far right", },
+            K = { "<C-w>K", "Move tab to far top", },
+            J = { "<C-w>J", "Move tab to far bottom", },
+            x = { "<C-w>x", "Exchange window (count needed first)", },
+        },
     },
 
     -- b = {

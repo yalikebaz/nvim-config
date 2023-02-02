@@ -48,23 +48,20 @@ return packer.startup(function(use)
     use("wbthomason/packer.nvim") -- Have packer manage itself
 
     -- Navigation --
-    use 'nvim-tree/nvim-web-devicons' -- Pretty sure this is the exact same as the below. The guy updated the URL?
-
-    use({
-        "nvim-lualine/lualine.nvim", -- A statusline that isn't horrible
-        requires = { "nvim-tree/nvim-web-devicons", opt = true },
-    })
-
-    use("goolord/alpha-nvim")
-    use("ThePrimeagen/harpoon") -- Easily navigate files
-    use("christoomey/vim-tmux-navigator") -- tmux and split window navigation
-    -- use("akinsho/bufferline.nvim") -- Tracks buffers
     use {
         'nvim-tree/nvim-tree.lua', -- File tree
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional, for file icons
         },
     }
+    use 'nvim-tree/nvim-web-devicons' -- Pretty sure this is the exact same as the below. The guy updated the URL?
+    use({
+        "nvim-lualine/lualine.nvim", -- A statusline that isn't horrible
+        requires = { "nvim-tree/nvim-web-devicons", opt = true },
+    })
+    use("goolord/alpha-nvim")
+    use("ThePrimeagen/harpoon") -- Easily navigate files
+    use("christoomey/vim-tmux-navigator") -- tmux and split window navigation
     use("moll/vim-bbye") -- Provides :Bdelete, which is less annoying than :bdelete
     use("folke/which-key.nvim") -- Showing bindings
     use({

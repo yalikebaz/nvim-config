@@ -49,11 +49,9 @@ keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 
--- Navigate buffers, using l and h because K is reserved for goto in vim (unless I wanna remap that?)
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
--- keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
--- keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+-- Navigate tabs, using l and h because K is reserved for goto in vim (unless I wanna remap that?)
+keymap("n", "<S-l>", ":tabnext<CR>", opts)
+keymap("n", "<S-h>", ":tabprevious<CR>", opts)
 
 -- Insert --
 keymap("i", "jk", "<ESC>", opts) -- Press jk fast to enter

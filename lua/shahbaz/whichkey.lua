@@ -89,9 +89,15 @@ local mappings = {
     ["b"] = { "<cmd>:Telescope buffers<cr>", "Show all buffers" },
     [" "] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Show harpoon menu" },
 
-    S = {
-        name = "Search",
+    f = {
+        name = "Find",
         a = { "<cmd>Alpha<cr>", "Alpha" },
+
+        l = { "<cmd>:lopen<cr>", "Location list" },
+        e = { ":call setloclist(0,[])<cr>:lua print('loclist emptied!')<cr>)", "Empty location list" },
+        -- l = { "<cmd>:Telescope loclist<cr>", "Location list" },
+        -- l = { "<cmd>:lua require('telescope.builtin').loclist()<cr>", "Location list" },
+
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         -- c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         f = {
@@ -103,7 +109,7 @@ local mappings = {
         -- F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
         F = { "<cmd>Telescope live_grep <cr>", "Find Text" },
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-        m = { "<cmd>Telescope vim_bookmarks all", "All marks" },
+        m = { "<cmd>Telescope vim_bookmarks all<cr>", "All marks" },
         M = { "<cmd>Telescope vim_bookmarks current_file<cr>", "Marks in current file" },
         -- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" }, --dunno wtf man pages are
         c = {
@@ -127,15 +133,8 @@ local mappings = {
         h = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon menu" },
     },
 
-    f = {
-        name = "File",
-        l = { "<cmd>:lopen<cr>", "Location list" },
-        -- l = { "<cmd>:Telescope loclist<cr>", "Location list" },
-        -- l = { "<cmd>:lua require('telescope.builtin').loclist()<cr>", "Location list" },
-
-        e = { ":call setloclist(0,[])<cr>:lua print('loclist emptied!')<cr>)", "Empty location list" },
-        ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
-
+    S = {
+        name = "Substitute",
         s = {
             function()
                 local word1 = vim.fn.input("find: ", "")
@@ -319,25 +318,13 @@ local mappings = {
         },
     },
 
-    -- b = {
-    --   name = "Buffers",
-    --   p = {
-    --     ":BufferLinePick<cr>",
-    --     "Pick buffer",
-    --   },
-    --   l = { "<cmd>:BufferLineMoveNext<cr>", "Move buffer right" },
-    --   h = { "<cmd>:BufferLineMovePrev<cr>", "Move buffer left" },
-    --   a = { "<cmd>:Telescope buffers<cr>", "Show all buffers" },
-    --
-    --   g = {
-    --     function()
-    --       local num = vim.fn.input("Type buffer number: ", "")
-    --       local cmd = "BufferLineGoToBuffer " .. num
-    --       vim.cmd(cmd)
-    --     end,
-    --     "Go to buffer number",
-    --   },
-    -- },
+    t = {
+        name = "Tabs",
+        t = { "<cmd>tabnew<cr>", "New tab" },
+        c = { "<cmd>tabclose<cr>", "Close tab", },
+        n = { "<cmd>tabnext<cr>", "Next tab", },
+        p = { "<cmd>tabprevious<cr>", "Previous tab", },
+    },
 
     B = {
         name = "Browse",

@@ -37,7 +37,8 @@ vim.opt.scrolloff = 10                          -- Max lines padding
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 vim.opt.cmdheight = 1                           -- setting command height
-vim.opt.winbar = "%f"                           -- Winbar, see :h winbar. I've disabled this shit cause relative file path isn't as consistent as lualine
+-- vim.opt.winbar = "%f"                           -- Winbar, see :h winbar. I've disabled this shit cause relative file path isn't as consistent as lualine
+vim.cmd [[setlocal winbar=%f]]
 
 -- delme
 -- local get_filename = function(path)
@@ -61,4 +62,4 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work. Not even sure what this is?
 vim.cmd "set noautochdir" -- Auto change directory, makes iTerm cd into the cwd
-vim.cmd [[:autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>]] --This will automatically close the quickfix list after selecting a file from it
+-- vim.cmd [[:autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>]] --This will automatically close the quickfix list after selecting a file from it

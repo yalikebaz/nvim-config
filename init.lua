@@ -9,7 +9,6 @@ require("shahbaz.options")
 -- Navigation
 require("shahbaz.nvim-tree")
 require("shahbaz.telescope")
--- require("shahbaz.bufferline") -- Don't use this anymore. Leaving it in here in case I change my mind.
 require("shahbaz.alpha")
 require("shahbaz.whichkey")
 
@@ -30,6 +29,3 @@ require("shahbaz.indent-blankline")
 require("shahbaz.gitsigns")
 require("shahbaz.ufo")
 require("shahbaz.browse")
-
--- TODO: This is applying here, but not in options.lua
-vim.cmd ":hi VertSplit guifg='white'"

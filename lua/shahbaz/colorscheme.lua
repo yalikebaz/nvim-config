@@ -44,4 +44,7 @@ end
 
 SetIndentColors()
 
+-- vim.cmd ":hi TabLineSel guifg=black guibg=#607E83"
+vim.cmd ":hi VertSplit guifg=white"
+
 return Colorscheme

@@ -61,13 +61,16 @@ local progress = function()
 end
 
 local isModified = function()
-    if vim.o.modified == true then
+    if vim.bo.modified == true then
         vim.cmd(":hi WinBar guifg='orange'")
-        vim.opt.winbar = "%f [+]"
+        -- vim.opt.winbar = "%f [+]"
+        -- vim.cmd [[setlocal winbar='MODIFIED']]
+        vim.cmd "setlocal winbar=%f%m"
         return "-- DOCUMENT MODIFIED --"
     else
-        vim.cmd(":hi WinBar guifg='grey' guibg=..")
-        vim.opt.winbar = "%f"
+        vim.cmd(":hi WinBar guifg='#9C6EE8' guibg=..")
+        -- vim.opt.winbar = "%f"
+        vim.cmd [[setlocal winbar=%f]]
     end
     return ""
 end

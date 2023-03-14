@@ -173,11 +173,14 @@ require("nvim-tree").setup({
         },
     },
     renderer = {
-        group_empty = true,
+        group_empty = false,
         highlight_opened_files = "all", -- "none", "icon", "name", or "all"
     },
-    filters = {
-        dotfiles = true,
+    -- filters = {
+    --     dotfiles = true,
+    -- },
+    git = {
+        ignore = false
     },
 })
 vim.cmd(":hi NvimTreeRootFolder guifg='grey'") -- FIX: Why isn't this working? The command is right, but it's not being called for some reason

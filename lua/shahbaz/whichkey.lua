@@ -354,6 +354,7 @@ local mappings = {
         ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
         ["M"] = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
         ["t"] = { ":luafile ~/.config/nvim/lua/shahbaz/toggle-colorscheme.lua<cr>", "Toggle light/dark mode" },
+        ["f"] = { "<cmd>filetype detect", "Filetype detect (fix syntax highlighting)" },
     },
 }
 

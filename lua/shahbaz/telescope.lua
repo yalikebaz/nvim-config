@@ -104,6 +104,9 @@ telescope.setup({
         buffers = {
             initial_mode = "normal" -- Opens telescope in normal mode when running :Telescope buffers
         },
+        oldfiles = {
+            initial_mode = "normal"
+        }
         -- vim_bookmarks = { -- FIX: Lol I was confused writing this. Not sure what i was trying to achieve.
         --     width_text = 40,
         --     prompt_title = "test",

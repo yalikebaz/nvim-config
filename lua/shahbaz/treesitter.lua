@@ -9,6 +9,7 @@ require("nvim-treesitter.configs").setup({
     "lua",
     "vim",
     "help",
+    "sql",
     "tsx",
     "typescript",
     "javascript",

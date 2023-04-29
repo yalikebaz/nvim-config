@@ -5,6 +5,12 @@ local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
+-- nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
+-- nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
+
+vim.keymap.set("n", "k", "(v:count > 1 ? 'm`' . v:count : '') . 'k'", { noremap = true, expr = true, silent = true })
+vim.keymap.set("n", "j", "(v:count > 1 ? 'm`' . v:count : '') . 'j'", { noremap = true, expr = true, silent = true })
+
 -- Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "

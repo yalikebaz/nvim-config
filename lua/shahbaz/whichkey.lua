@@ -82,6 +82,7 @@ local mappings = {
     ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
+    ["U"] = { "<cmd>UndotreeToggle<CR>", "Undotree" },
     ["w"] = { "<cmd>w!<CR>", "Save" },
     ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Toggle comment" },
     ["v"] = { "<cmd>vsplit<cr>", "Vert split" },
@@ -94,6 +95,7 @@ local mappings = {
         a = { "<cmd>Alpha<cr>", "Alpha" },
 
         l = { "<cmd>:lopen<cr>", "Location list" },
+        q = { "<cmd>Telescope quickfix<cr>", "Quickfix (telescope)" },
         e = { ":call setloclist(0,[])<cr>:lua print('loclist emptied!')<cr>)", "Empty location list" },
         -- l = { "<cmd>:Telescope loclist<cr>", "Location list" },
         -- l = { "<cmd>:lua require('telescope.builtin').loclist()<cr>", "Location list" },
@@ -220,6 +222,7 @@ local mappings = {
         },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+        R = { "<cmd>LspRestart<cr>", "Restart LSP" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
         S = {
             "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
@@ -304,7 +307,7 @@ local mappings = {
         v = { "<cmd>vsplit<cr>", "Vert. split" },
         h = { "<cmd>split<cr>", "Hor. split", },
         t = { "<cmd>tabedit %<cr>", "Open in new tab", },
-        ["="] = { "<C-w>=", "Make splits equal size", },
+        ["e"] = { "<C-w>=", "Make splits equal size", },
 
         m = {
             name = "Move",

@@ -48,6 +48,7 @@ return packer.startup(function(use)
     use("wbthomason/packer.nvim") -- Have packer manage itself
 
     -- Navigation --
+    use 'mbbill/undotree'
     use {
         'nvim-tree/nvim-tree.lua', -- File tree
         requires = {
@@ -68,8 +69,8 @@ return packer.startup(function(use)
         "lalitmee/browse.nvim", -- A handy search tool
         requires = { "nvim-telescope/telescope.nvim" },
     })
-    use("MattesGroeger/vim-bookmarks") -- better bookmarks
-    use("tom-anders/telescope-vim-bookmarks.nvim") -- telescope extension for vim-bookmarks. TODO: Not showing one specific bookmark: Friendly snippets
+    -- use("MattesGroeger/vim-bookmarks") -- better bookmarks
+    -- use("tom-anders/telescope-vim-bookmarks.nvim") -- telescope extension for vim-bookmarks. TODO: Not showing one specific bookmark: Friendly snippets
     use("BurntSushi/ripgrep") --ripgrep needed for live-grep in telescope
 
     -- Telescope

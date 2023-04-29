@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 telescope.load_extension("media_files")
-telescope.load_extension("vim_bookmarks")
+-- telescope.load_extension("vim_bookmarks")
 
 local actions = require("telescope.actions")
 
@@ -16,34 +16,26 @@ telescope.setup({
         selection_caret = "   ",
         path_display = { "smart" },
         layout_strategy = "vertical",
-
         -- layout_config = { width = 0.99, preview_width = 0.38 }, -- BUG: causes an issue with browse.nvim
 
         mappings = {
             i = {
                 ["<C-n>"] = actions.cycle_history_next,
                 ["<C-p>"] = actions.cycle_history_prev,
-
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
-
                 ["<C-c>"] = actions.close,
                 ["<esc>"] = actions.close,
-
                 ["<Down>"] = actions.move_selection_next,
                 ["<Up>"] = actions.move_selection_previous,
-
                 ["<CR>"] = actions.select_default,
                 ["<C-x>"] = actions.select_horizontal,
                 ["<C-v>"] = actions.select_vertical,
                 ["<C-t>"] = actions.select_tab,
-
                 ["<C-u>"] = actions.preview_scrolling_up,
                 ["<C-d>"] = actions.preview_scrolling_down,
-
                 ["<PageUp>"] = actions.results_scrolling_up,
                 ["<PageDown>"] = actions.results_scrolling_down,
-
                 ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
                 ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
                 -- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
@@ -54,7 +46,6 @@ telescope.setup({
                 -- ["<C-l>"] = actions.complete_tag,
                 ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
             },
-
             n = {
                 ["q"] = actions.close,
                 ["<C-c>"] = actions.close,
@@ -64,31 +55,25 @@ telescope.setup({
                 ["<C-v>"] = actions.select_vertical,
                 ["D"] = actions.delete_buffer,
                 ["<C-t>"] = actions.select_tab,
-
                 ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
                 ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
                 -- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
                 ["<C-s>"] = actions.send_selected_to_loclist + actions.open_loclist,
                 ["<C-l>"] = actions.send_to_loclist + actions.open_loclist,
                 ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-
                 ["j"] = actions.move_selection_next,
                 ["k"] = actions.move_selection_previous,
                 ["H"] = actions.move_to_top,
                 ["M"] = actions.move_to_middle,
                 ["L"] = actions.move_to_bottom,
-
                 ["<Down>"] = actions.move_selection_next,
                 ["<Up>"] = actions.move_selection_previous,
                 ["gg"] = actions.move_to_top,
                 ["G"] = actions.move_to_bottom,
-
                 ["<C-u>"] = actions.preview_scrolling_up,
                 ["<C-d>"] = actions.preview_scrolling_down,
-
                 ["<PageUp>"] = actions.results_scrolling_up,
                 ["<PageDown>"] = actions.results_scrolling_down,
-
                 ["?"] = actions.which_key,
             },
         },
@@ -105,6 +90,15 @@ telescope.setup({
             initial_mode = "normal" -- Opens telescope in normal mode when running :Telescope buffers
         },
         oldfiles = {
+            initial_mode = "normal"
+        },
+        quickfix = {
+            initial_mode = "normal"
+        },
+        lsp_references = {
+            initial_mode = "normal"
+        },
+        todo = {
             initial_mode = "normal"
         }
         -- vim_bookmarks = { -- FIX: Lol I was confused writing this. Not sure what i was trying to achieve.

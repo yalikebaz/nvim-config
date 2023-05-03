@@ -70,7 +70,7 @@ return packer.startup(function(use)
         requires = { "nvim-telescope/telescope.nvim" },
     })
     -- use("MattesGroeger/vim-bookmarks") -- better bookmarks
-    -- use("tom-anders/telescope-vim-bookmarks.nvim") -- telescope extension for vim-bookmarks. TODO: Not showing one specific bookmark: Friendly snippets
+    -- use("tom-anders/telescope-vim-bookmarks.nvim") -- telescope extension for vim-bookmarks.
     use("BurntSushi/ripgrep") --ripgrep needed for live-grep in telescope
 
     -- Telescope
@@ -89,7 +89,6 @@ return packer.startup(function(use)
 
     -- Snippets
     use("L3MON4D3/LuaSnip") --snippet engine
-    use("rafamadriz/friendly-snippets") -- a bunch of snippets to use, see here: https://github.com/rafamadriz/friendly-snippets/wiki#snippets-list
     use("saadparwaiz1/cmp_luasnip") -- snippet oompletionslua
 
     use({
@@ -130,6 +129,7 @@ return packer.startup(function(use)
     })
 
     -- Color schemes
+    use {'nyoom-engineering/oxocarbon.nvim'}
     use("lunarvim/colorschemes") -- A bunch of colorschemes
     use("folke/tokyonight.nvim")
     use("ajgrf/parchment")
@@ -169,7 +169,6 @@ return packer.startup(function(use)
 
             -- Snippets
             { "L3MON4D3/LuaSnip" }, -- Required
-            { "rafamadriz/friendly-snippets" }, -- Optional
         },
     })
 

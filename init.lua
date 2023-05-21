@@ -18,6 +18,7 @@ require("shahbaz.colorscheme")
 
 -- CMP, LSP and Treesitter
 require("shahbaz.treesitter")
+require("shahbaz.treesitter-context")
 require("shahbaz.lspzero")
 require("shahbaz.null-ls")
 

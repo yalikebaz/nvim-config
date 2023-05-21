@@ -114,6 +114,7 @@ return packer.startup(function(use)
     })
 
     -- Treesitter plugins
+    use "nvim-treesitter/nvim-treesitter-context"
     use("windwp/nvim-autopairs") -- Autopair brackets, integrates with both cmp and treesitter
     use("p00f/nvim-ts-rainbow") -- Rainbow brackets
     use("JoosepAlviste/nvim-ts-context-commentstring") -- Contextual comments for tsx

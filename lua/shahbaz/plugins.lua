@@ -49,12 +49,23 @@ return packer.startup(function(use)
 
     -- Navigation --
     use 'mbbill/undotree'
+    -- use {
+    --     'nvim-tree/nvim-tree.lua', -- File tree
+    --     requires = {
+    --         'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    --     },
+    -- }
+    --
     use {
-        'nvim-tree/nvim-tree.lua', -- File tree
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
         requires = {
-            'nvim-tree/nvim-web-devicons', -- optional, for file icons
-        },
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        }
     }
+    --
     use 'nvim-tree/nvim-web-devicons' -- Pretty sure this is the exact same as the below. The guy updated the URL?
     use({
         "nvim-lualine/lualine.nvim", -- A statusline that isn't horrible
@@ -130,7 +141,7 @@ return packer.startup(function(use)
     })
 
     -- Color schemes
-    use {'nyoom-engineering/oxocarbon.nvim'}
+    use { 'nyoom-engineering/oxocarbon.nvim' }
     use("lunarvim/colorschemes") -- A bunch of colorschemes
     use("folke/tokyonight.nvim")
     use("ajgrf/parchment")

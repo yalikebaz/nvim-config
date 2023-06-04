@@ -135,6 +135,11 @@ _G.packer_plugins = {
     path = "/Users/ssiddiqui/.local/share/nvim/site/pack/packer/start/colorschemes",
     url = "https://github.com/lunarvim/colorschemes"
   },
+  ["dracula.nvim"] = {
+    loaded = true,
+    path = "/Users/ssiddiqui/.local/share/nvim/site/pack/packer/start/dracula.nvim",
+    url = "https://github.com/Mofiqul/dracula.nvim"
+  },
   edge = {
     loaded = true,
     path = "/Users/ssiddiqui/.local/share/nvim/site/pack/packer/start/edge",

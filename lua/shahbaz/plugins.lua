@@ -129,7 +129,7 @@ return packer.startup(function(use)
     use("p00f/nvim-ts-rainbow")                        -- Rainbow brackets
     use("JoosepAlviste/nvim-ts-context-commentstring") -- Contextual comments for tsx
     use({
-                                                       -- Auto tagging for html
+        -- Auto tagging for html
         "windwp/nvim-ts-autotag",
         config = function()
             require("nvim-treesitter.configs").setup({
@@ -141,7 +141,8 @@ return packer.startup(function(use)
     })
 
     -- Color schemes
-    use {'ribru17/bamboo.nvim'}
+    use 'Mofiqul/dracula.nvim'
+    use { 'ribru17/bamboo.nvim' }
     use { 'nyoom-engineering/oxocarbon.nvim' }
     use("lunarvim/colorschemes") -- A bunch of colorschemes
     use("folke/tokyonight.nvim")

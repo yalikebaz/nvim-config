@@ -8,7 +8,7 @@ require("shahbaz.options")
 
 -- Navigation
 require("shahbaz.undo-tree")
--- require("shahbaz.nvim-tree")
+require("shahbaz.neo-tree")
 require("shahbaz.telescope")
 require("shahbaz.alpha")
 require("shahbaz.whichkey")

@@ -1,5 +1,5 @@
 -- NIGHT
-Colorscheme = "nightfox"
+Colorscheme = "dracula"
 -- Colorscheme = "oxocarbon"
 --Colorscheme = "codemonkey"
 

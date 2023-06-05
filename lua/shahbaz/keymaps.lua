@@ -58,6 +58,7 @@ keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 -- Navigate tabs, using l and h because K is reserved for goto in vim (unless I wanna remap that?)
 keymap("n", "<S-l>", ":tabnext<CR>", opts)
 keymap("n", "<S-h>", ":tabprevious<CR>", opts)
+-- keymap("n", "<cr>", "<ESC>ciw", opts) --
 
 -- Insert --
 keymap("i", "jk", "<ESC>", opts) -- Press jk fast to enter

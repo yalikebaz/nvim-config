@@ -307,7 +307,16 @@ local mappings = {
         name = "Split",
         v = { "<cmd>vsplit<cr>", "Vert. split" },
         h = { "<cmd>split<cr>", "Hor. split", },
-        t = { "<cmd>tabedit %<cr>", "Open in new tab", },
+        -- t = { "<cmd>tabedit %<cr>", "Open in new tab", },
+        t = {
+            function()
+                local lr = vim.api.nvim_win_get_cursor(0)[1]
+                vim.cmd("tabedit %")
+                vim.cmd(":" .. lr)
+            end,
+            "Open in new tab"
+        },
+
         ["e"] = { "<C-w>=", "Make splits equal size", },
 
         m = {

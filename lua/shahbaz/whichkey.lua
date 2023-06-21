@@ -79,6 +79,7 @@ local opts = {
 }
 
 local mappings = {
+    ["a"] = { "<cmd>:AerialToggle<cr>", "Toggle aerial" },
     ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     -- ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     ["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
@@ -335,8 +336,8 @@ local mappings = {
         name = "Tabs",
         t = { "<cmd>tabnew<cr>", "New tab" },
         c = { "<cmd>tabclose<cr>", "Close tab", },
-        n = { "<cmd>tabnext<cr>", "Next tab", },
-        p = { "<cmd>tabprevious<cr>", "Previous tab", },
+        h = { "<cmd>-tabmove<cr>", "Move tab left", },
+        l = { "<cmd>+tabmove<cr>", "Move tab right", },
     },
 
     B = {

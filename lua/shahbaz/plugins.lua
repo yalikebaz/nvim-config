@@ -49,6 +49,10 @@ return packer.startup(function(use)
 
     -- Navigation --
     use 'mbbill/undotree'
+    use {
+        'stevearc/aerial.nvim',
+        config = function() require('aerial').setup() end
+    }
     -- use {
     --     'nvim-tree/nvim-tree.lua', -- File tree
     --     requires = {

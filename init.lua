@@ -7,6 +7,7 @@ require("shahbaz.keymaps")
 require("shahbaz.options")
 
 -- Navigation
+require("shahbaz.other")
 require("shahbaz.undo-tree")
 require("shahbaz.neo-tree")
 require("shahbaz.telescope")

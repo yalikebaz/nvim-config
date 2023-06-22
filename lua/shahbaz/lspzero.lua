@@ -80,7 +80,8 @@ lsp.on_attach(function(client, bufnr)
     --   vim.lsp.buf.code_action()
     -- end, opts)
     vim.keymap.set("n", "gr", function()
-        vim.lsp.buf.references()
+        -- vim.lsp.buf.references()
+        vim.cmd [[Telescope lsp_references]]
     end, opts)
 
     -- vim.cmd("lua require('telescope.builtin').lsp_references()")

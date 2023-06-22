@@ -242,6 +242,18 @@ local mappings = {
     },
 
     o = {
+        name = "Other",
+        o = {
+            "<cmd>Other<cr>",
+            "Other",
+        },
+        v = {
+            "<cmd>OtherVSplit<cr>",
+            "Other v-split",
+        },
+    },
+    
+    O = {
         name = "Options",
         a = {
             "<cmd>set autochdir!<cr>:echo 'setting changed to: '|set autochdir?<cr>",

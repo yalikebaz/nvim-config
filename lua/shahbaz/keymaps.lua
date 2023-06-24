@@ -37,6 +37,8 @@ keymap("n", "<leader>q", ":q <CR>", { silent = true })
 keymap("n", "<Esc>", ":nohl<CR>|:echo<CR>", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "go", ":Other<cr>", opts)
+keymap("n", "gO", ":OtherClear<cr>:Other<cr>", opts)
 
 -- Surround
 -- TODO: unmap the S key... idk how lol
@@ -48,6 +50,7 @@ keymap("n", "S{", "ysiw{", { silent = true })
 
 -- File formatting
 keymap("n", "<leader>w", ":w <cr>", opts)
+keymap("n", "U", ":UndotreeToggle<cr>:UndotreeFocus<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)

@@ -5,22 +5,22 @@ end
 
 local setup = {
     plugins = {
-        marks = true, -- shows a list of your marks on ' and `
-        registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+        marks = true,         -- shows a list of your marks on ' and `
+        registers = true,     -- shows your registers on " in NORMAL or <C-r> in INSERT mode
         spelling = {
-            enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+            enabled = true,   -- enabling this will show WhichKey when pressing z= to select spelling suggestions
             suggestions = 20, -- how many suggestions should be shown in the list?
         },
         -- the presets plugin, adds help for a bunch of default keybindings in Neovim
         -- No actual key bindings are created
         presets = {
-            operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-            motions = true, -- adds help for motions
+            operators = false,    -- adds help for operators like d, y, ... and registers them for motion / text object completion
+            motions = true,       -- adds help for motions
             text_objects = false, -- help for text objects triggered after entering an operator
-            windows = true, -- default bindings on <c-w>
-            nav = true, -- misc bindings to work with windows
-            z = true, -- bindings for folds, spelling and others prefixed with z
-            g = true, -- bindings for prefixed with g
+            windows = true,       -- default bindings on <c-w>
+            nav = true,           -- misc bindings to work with windows
+            z = true,             -- bindings for folds, spelling and others prefixed with z
+            g = true,             -- bindings for prefixed with g
         },
     },
     -- add operators that will trigger motion and text object completion
@@ -36,29 +36,29 @@ local setup = {
     icons = {
         breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
         separator = "➜", -- symbol used between a key and it's label
-        group = "+", -- symbol prepended to a group
+        group = "+",      -- symbol prepended to a group
     },
     popup_mappings = {
         scroll_down = "<c-d>", -- binding to scroll down inside the popup
-        scroll_up = "<c-u>", -- binding to scroll up inside the popup
+        scroll_up = "<c-u>",   -- binding to scroll up inside the popup
     },
     window = {
-        border = "rounded", -- none, single, double, shadow
-        position = "bottom", -- bottom, top
-        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+        border = "rounded",       -- none, single, double, shadow
+        position = "bottom",      -- bottom, top
+        margin = { 1, 0, 1, 0 },  -- extra window margin [top, right, bottom, left]
         padding = { 1, 2, 1, 2 }, -- extra window padding [top, right, bottom, left]
         winblend = 0,
     },
     layout = {
-        height = { min = 4, max = 25 }, -- min and max height of the columns
-        width = { min = 20, max = 50 }, -- min and max width of the columns
-        spacing = 3, -- spacing between columns
-        align = "left", -- align columns left, center or right
+        height = { min = 4, max = 25 },                                           -- min and max height of the columns
+        width = { min = 20, max = 50 },                                           -- min and max width of the columns
+        spacing = 3,                                                              -- spacing between columns
+        align = "left",                                                           -- align columns left, center or right
     },
-    ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
+    ignore_missing = true,                                                        -- enable this to hide mappings for which you didn't specify a label
     hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-    show_help = true, -- show help message on the command line when the popup is visible
-    triggers = "auto", -- automatically setup triggers
+    show_help = true,                                                             -- show help message on the command line when the popup is visible
+    triggers = "auto",                                                            -- automatically setup triggers
     -- triggers = {"<leader>"} -- or specify a list manually
     triggers_blacklist = {
         -- list of mode / prefixes that should never be hooked by WhichKey
@@ -70,12 +70,12 @@ local setup = {
 }
 
 local opts = {
-    mode = "n", -- NORMAL mode
+    mode = "n",     -- NORMAL mode
     prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
+    buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true,  -- use `silent` when creating keymaps
     noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
+    nowait = true,  -- use `nowait` when creating keymaps
 }
 
 local mappings = {
@@ -84,18 +84,17 @@ local mappings = {
     -- ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     ["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
-    ["U"] = { "<cmd>UndotreeToggle<CR>", "Undotree" },
+    -- ["U"] = { "<cmd>UndotreeToggle<CR>", "Undotree" }, -- moved to keymaps
     ["w"] = { "<cmd>w!<CR>", "Save" },
     ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Toggle comment" },
     ["v"] = { "<cmd>vsplit<cr>", "Vert split" },
-
+    -- ["o"] = { "<cmd>Other<cr>", "Other file" }, -- moved to keymaps.lua, as "go" and "gO"
+    -- ["O"] = { "<cmd>OtherClear<cr><cmd>Other<cr>", "Other clear" },
     ["b"] = { "<cmd>:Telescope buffers<cr>", "Show all buffers" },
     [" "] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Show harpoon menu" },
-
     f = {
         name = "Find",
         a = { "<cmd>Alpha<cr>", "Alpha" },
-
         l = { "<cmd>:lopen<cr>", "Location list" },
         q = { "<cmd>Telescope quickfix<cr>", "Quickfix (telescope)" },
         e = { ":call setloclist(0,[])<cr>:lua print('loclist emptied!')<cr>)", "Empty location list" },
@@ -129,14 +128,12 @@ local mappings = {
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
     }, -- By the way, you can nest groups! Just follow the same syntax
-
     h = {
         name = "Harpoon",
         a = { "<cmd>lua require('harpoon.mark').add_file()<cr>|<cmd>lua print('File added to harpoon')<cr>",
             "Add to harpoon" },
         h = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon menu" },
     },
-
     S = {
         name = "Substitute",
         s = {
@@ -148,7 +145,6 @@ local mappings = {
             end,
             "Substitute in line",
         },
-
         c = {
             function()
                 local word1 = vim.fn.input("find: ", "")
@@ -158,7 +154,6 @@ local mappings = {
             end,
             "Substitute in line (confirm)",
         },
-
         S = {
             function()
                 local word1 = vim.fn.input("find: ", "")
@@ -168,7 +163,6 @@ local mappings = {
             end,
             "Substitute in file",
         },
-
         C = {
             function()
                 local word1 = vim.fn.input("find: ", "")
@@ -179,7 +173,6 @@ local mappings = {
             "Substitute in file (confirm)",
         },
     },
-
     g = {
         name = "Git",
         g = { "<cmd>silent !~/.config/nvim/lazygit/lazygit.sh<cr>", "Lazygit" },
@@ -202,7 +195,6 @@ local mappings = {
             "Diff",
         },
     },
-
     l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -231,7 +223,6 @@ local mappings = {
             "Workspace Symbols",
         },
     },
-
     m = {
         name = "Marks",
         m = {
@@ -240,21 +231,20 @@ local mappings = {
         },
         a = { "<cmd>:BookmarkAnnotate<CR>", "Mark annotation" },
     },
+    -- o = {
+    --     name = "Other",
+    --     o = {
+    --         "<cmd>Other<cr>",
+    --         "Other",
+    --     },
+    --     v = {
+    --         "<cmd>OtherVSplit<cr>",
+    --         "Other v-split",
+    --     },
+    -- },
 
-    o = {
-        name = "Other",
-        o = {
-            "<cmd>Other<cr>",
-            "Other",
-        },
-        v = {
-            "<cmd>OtherVSplit<cr>",
-            "Other v-split",
-        },
-    },
-    
-    O = {
-        name = "Options",
+    T = {
+        name = "Toggle vim options",
         a = {
             "<cmd>set autochdir!<cr>:echo 'setting changed to: '|set autochdir?<cr>",
             "Toggle auto-change directory",
@@ -268,7 +258,6 @@ local mappings = {
         w = { "<cmd>set wrap!<cr>", "Toggle word wrap" },
         z = { "<cmd>set fdm=indent<cr>", "Set foldmethod to syntax" },
     },
-
     p = {
         name = "Packer",
         c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -277,7 +266,6 @@ local mappings = {
         S = { "<cmd>PackerStatus<cr>", "Status" },
         u = { "<cmd>PackerUpdate<cr>", "Update" },
     },
-
     r = {
         name = "REST Client",
         o = {
@@ -315,7 +303,6 @@ local mappings = {
         },
         c = { ":call VrcQuery()<cr><C-w>l:only<cr>", "Call endpoint" },
     },
-
     s = {
         name = "Split",
         v = { "<cmd>vsplit<cr>", "Vert. split" },
@@ -329,9 +316,7 @@ local mappings = {
             end,
             "Open in new tab"
         },
-
         ["e"] = { "<C-w>=", "Make splits equal size", },
-
         m = {
             name = "Move",
             l = { "<C-w>r", "Move tab right/downwards" },
@@ -343,7 +328,6 @@ local mappings = {
             x = { "<C-w>x", "Exchange window (count needed first)", },
         },
     },
-
     t = {
         name = "Tabs",
         t = { "<cmd>tabnew<cr>", "New tab" },
@@ -351,7 +335,6 @@ local mappings = {
         h = { "<cmd>-tabmove<cr>", "Move tab left", },
         l = { "<cmd>+tabmove<cr>", "Move tab right", },
     },
-
     B = {
         name = "Browse",
         g = {
@@ -373,7 +356,6 @@ local mappings = {
             "Devdocs function",
         },
     },
-
     u = {
         name = "UI",
         c = { "<cmd>VCoolor<cr>", "Color picker" },
@@ -385,15 +367,16 @@ local mappings = {
 }
 
 local vopts = {
-    mode = "v", -- VISUAL mode
+    mode = "v",     -- VISUAL mode
     prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
+    buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true,  -- use `silent` when creating keymaps
     noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
+    nowait = true,  -- use `nowait` when creating keymaps
 }
 local vmappings = {
-    ["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
+    ["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Toggle comment linewise (visual)" },
+    ["b"] = { "<Plug>(comment_toggle_blockwise_visual)", "Toggle block comment (visual)" },
     -- ["s"] = { "Substitute" },
     -- '<,'>s/pee/poo/g
     v = {

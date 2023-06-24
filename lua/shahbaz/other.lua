@@ -7,6 +7,32 @@ require("other-nvim").setup({
         -- "rails",
         "golang",
         -- WORK MAPPINGS --
+        -- Go file -> model file/constants file
+        {
+            pattern = "/pkg/(.*)/(.*).go",
+            target = "/pkg/%1/model.go",
+            context = "Model" -- optional
+        },
+        {
+            pattern = "/pkg/(.*)/model.go",
+            target = "/pkg/%1/%1.go",
+            context = "Go" -- optional
+        },
+        {
+            pattern = "/pkg/(.*)/(.*).go",
+            target = "/pkg/%1/constants.go",
+            context = "Constants" -- optional
+        },
+        {
+            pattern = "/pkg/(.*)/constants.go",
+            target = "/pkg/%1/%1.go",
+            context = "Go" -- optional
+        },
+        --[[ {
+            pattern = "/pkg/%1/model.go",
+            target = "/pkg/(.*)/.*.go",
+            context = "Go"
+        }, ]]
         -- Query to schema
         {
             pattern = "/graph/schema.queries.graphqls",
@@ -47,7 +73,7 @@ require("other-nvim").setup({
             return inputString:lower()
         end
     },
-    rememberBuffers = false,
+    -- rememberBuffers = false,
     style = {
         -- How the plugin paints its window borders
         -- Allowed values are none, single, double, rounded, solid and shadow

@@ -22,6 +22,22 @@ end
 
 local packer = require("packer")
 
+-- survival setup
+local opts = { noremap = true, silent = true }
+vim.opt.relativenumber = true -- set relative numbered lines
+vim.opt.number = true -- set relative numbered lines
+vim.opt.scrolloff = 10 -- Max lines padding
+vim.opt.clipboard = "unnamedplus"
+vim.api.nvim_set_keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.api.nvim_set_keymap("i", "jk", "<ESC>", opts)
+vim.api.nvim_set_keymap("i", "kj", "<ESC>", opts)
+vim.api.nvim_set_keymap("n", "<leader>w", ":w<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>q", ":q<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>e", ":Lex<cr>", opts)
+-- end survival setup
+
 packer.init({ package_root = test_dir .. "/pack",
 	compile_path = test_dir .. "/plugin/packer_compiled.lua",
 })
@@ -42,13 +58,10 @@ packer.startup(function()
 	packer.use("wbthomason/packer.nvim")
 
 	-- TEST PLUGINS HERE
-	use({
-		"lalitmee/browse.nvim",
-		requires = { "nvim-telescope/telescope.nvim" },
-	}) 
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
 
-
+	-- END TEST PLUGINS
+	
 	if install_plugins then
 		packer.sync()
 	else

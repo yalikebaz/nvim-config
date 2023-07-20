@@ -140,7 +140,7 @@ vim.opt.termguicolors = true
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
     prefer_startup_root = true,
-    sync_root_with_cwd = true,
+    -- sync_root_with_cwd = true,
     diagnostics = {
         enable = true,
         show_on_dirs = true,
@@ -165,12 +165,13 @@ require("nvim-tree").setup({
     view = {
         adaptive_size = true,
         preserve_window_proportions = true,
-        mappings = {
-            list = {
-                { key = "u", action = "dir_up" },
-                { key = { "<leader>cd" }, action = "cd" }, --instead of <C-]>
-            },
-        },
+        -- FIX: deprecated: view.mappings.list has been deprecated in favour of on_attach. Please run :NvimTreeGenerateOnAttach and visit https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach
+        -- mappings = {
+        --     list = {
+        --         { key = "u", action = "dir_up" },
+        --         { key = { "<leader>cd" }, action = "cd" }, --instead of <C-]>
+        --     },
+        -- },
     },
     renderer = {
         group_empty = false,

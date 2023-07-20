@@ -48,9 +48,19 @@ vim.opt.shortmess:append "c"
 -- Define autocommands for specific file types
 vim.cmd [[
    augroup FileTypeSettings
-        autocmd BufEnter *.ts,*.tsx,*.js,*.jsx setlocal tabstop=2 shiftwidth=2
-        autocmd BufEnter *.go setlocal tabstop=4 shiftwidth=4
-        autocmd BufEnter *.* cd ./
+        " autocmd BufAdd,BufEnter,BufReadPre,FileReadPre *.ts,*.tsx,*.js,*.jsx setlocal tabstop=2 shiftwidth=2
+        " autocmd BufAdd,BufEnter,BufReadPre,FileReadPre *.go setlocal tabstop=4 shiftwidth=4
+        " autocmd BufAdd,BufEnter,BufReadPre,FileReadPre *.* cd ./
+        " autocmd BufAdd,BufEnter,BufReadPre,FileReadPre *.ts,*.tsx,*.js,*.jsx setlocal tabstop=2 shiftwidth=2
+        " autocmd BufAdd,BufEnter,BufReadPre,FileReadPre *.go setlocal tabstop=4 shiftwidth=4
+        " autocmd BufAdd,BufEnter,BufReadPre,FileReadPre *.* cd ./
+
+        autocmd BufAdd,BufEnter,BufRead,BufNewFile *.ts,*.tsx,*.js,*.jsx setlocal tabstop=2 shiftwidth=2
+        autocmd BufAdd,BufEnter,BufRead,BufNewFile *.go setlocal tabstop=4 shiftwidth=4
+        autocmd BufAdd,BufEnter,BufRead,BufNewFile *.* cd ./
+        autocmd BufAdd,BufEnter,BufRead,BufNewFile *.ts,*.tsx,*.js,*.jsx setlocal tabstop=2 shiftwidth=2
+        autocmd BufAdd,BufEnter,BufRead,BufNewFile *.go setlocal tabstop=4 shiftwidth=4
+        autocmd BufAdd,BufEnter,BufRead,BufNewFile *.* cd ./
    augroup END
 ]]
 

@@ -54,34 +54,34 @@ return packer.startup(function(use)
         'stevearc/aerial.nvim',
         config = function() require('aerial').setup() end
     }
-    -- use {
-    --     'nvim-tree/nvim-tree.lua', -- File tree
-    --     requires = {
-    --         'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    --     },
-    -- }
-    --
     use {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
+        'nvim-tree/nvim-tree.lua', -- File tree
         requires = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-        }
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
     }
+
+    -- use {
+    --     "nvim-neo-tree/neo-tree.nvim",
+    --     branch = "v2.x",
+    --     requires = {
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    --         "MunifTanjim/nui.nvim",
+    --     }
+    -- }
     --
     use({
         "nvim-lualine/lualine.nvim", -- A statusline that isn't horrible
         requires = { "nvim-tree/nvim-web-devicons", opt = true },
     })
     use("goolord/alpha-nvim")
-    use("ThePrimeagen/harpoon")           -- Easily navigate files
+    use("ThePrimeagen/harpoon") -- Easily navigate files
     use("christoomey/vim-tmux-navigator") -- tmux and split window navigation
-    use("moll/vim-bbye")                  -- Provides :Bdelete, which is less annoying than :bdelete
-    use("folke/which-key.nvim")           -- Showing bindings
+    use("moll/vim-bbye") -- Provides :Bdelete, which is less annoying than :bdelete
+    use("folke/which-key.nvim") -- Showing bindings
     use({
-        "lalitmee/browse.nvim",           -- A handy search tool
+        "lalitmee/browse.nvim", -- A handy search tool
         requires = { "nvim-telescope/telescope.nvim" },
     })
     -- use("MattesGroeger/vim-bookmarks") -- better bookmarks
@@ -98,12 +98,12 @@ return packer.startup(function(use)
     use("nvim-telescope/telescope-media-files.nvim") -- able to view media files in the telescope preview
 
     -- File formatting --
-    use("jose-elias-alvarez/null-ls.nvim")     -- null-ls for formatting where LSP servers cannot themselves. See https://www.reddit.com/r/neovim/comments/y26hw2/lspzero_lspzeroformat_lsp_format_request_failed/
-    use("tpope/vim-surround")                  -- Vim surround
+    use("jose-elias-alvarez/null-ls.nvim") -- null-ls for formatting where LSP servers cannot themselves. See https://www.reddit.com/r/neovim/comments/y26hw2/lspzero_lspzeroformat_lsp_format_request_failed/
+    use("tpope/vim-surround") -- Vim surround
     use("lukas-reineke/indent-blankline.nvim") -- Shows indent lines
 
     -- Snippets
-    use("L3MON4D3/LuaSnip")         --snippet engine
+    use("L3MON4D3/LuaSnip") --snippet engine
     use("saadparwaiz1/cmp_luasnip") -- snippet oompletionslua
 
     use({
@@ -114,13 +114,13 @@ return packer.startup(function(use)
     })
     use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }) -- Better vim folding
     use({
-        "numToStr/Comment.nvim",                                              -- Easily comment stuff
+        "numToStr/Comment.nvim", -- Easily comment stuff
         config = function()
             require("Comment").setup()
         end,
     })
     use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }) -- a better TODO manager
-    use("KabbAmine/vCoolor.vim")                                            -- color picker
+    use("KabbAmine/vCoolor.vim") -- color picker
 
     -- Treesitter
     use({
@@ -130,8 +130,8 @@ return packer.startup(function(use)
 
     -- Treesitter plugins
     use "nvim-treesitter/nvim-treesitter-context"
-    use("windwp/nvim-autopairs")                       -- Autopair brackets, integrates with both cmp and treesitter
-    use("p00f/nvim-ts-rainbow")                        -- Rainbow brackets
+    use("windwp/nvim-autopairs") -- Autopair brackets, integrates with both cmp and treesitter
+    use("p00f/nvim-ts-rainbow") -- Rainbow brackets
     use("JoosepAlviste/nvim-ts-context-commentstring") -- Contextual comments for tsx
     use({
         -- Auto tagging for html
@@ -162,9 +162,9 @@ return packer.startup(function(use)
     use("sainnhe/edge")
 
     -- Miscellaneous
-    use("nvim-lua/popup.nvim")     -- An implementation of the Popup API from vim in Neovim
-    use("nvim-lua/plenary.nvim")   -- Useful lua functions used by lots of plugins
-    use("diepm/vim-rest-console")  -- A REST client
+    use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
+    use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
+    use("diepm/vim-rest-console") -- A REST client
     use("lewis6991/gitsigns.nvim") -- Git signs
 
     -- use("hrsh7th/cmp-cmdline") -- cmdline completions. Not sure what this is or if I need it
@@ -174,17 +174,17 @@ return packer.startup(function(use)
         "VonHeikemen/lsp-zero.nvim",
         requires = {
             -- LSP Support
-            { "neovim/nvim-lspconfig" },             -- Required
-            { "williamboman/mason.nvim" },           -- Optional
+            { "neovim/nvim-lspconfig" }, -- Required
+            { "williamboman/mason.nvim" }, -- Optional
             { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
             -- Autocompletion
-            { "hrsh7th/nvim-cmp" },         -- Required
-            { "hrsh7th/cmp-nvim-lsp" },     -- Required
-            { "hrsh7th/cmp-buffer" },       -- Optional
-            { "hrsh7th/cmp-path" },         -- Optional
+            { "hrsh7th/nvim-cmp" }, -- Required
+            { "hrsh7th/cmp-nvim-lsp" }, -- Required
+            { "hrsh7th/cmp-buffer" }, -- Optional
+            { "hrsh7th/cmp-path" }, -- Optional
             { "saadparwaiz1/cmp_luasnip" }, -- Optional
-            { "hrsh7th/cmp-nvim-lua" },     -- Optional
+            { "hrsh7th/cmp-nvim-lua" }, -- Optional
 
             -- Snippets
             { "L3MON4D3/LuaSnip" }, -- Required

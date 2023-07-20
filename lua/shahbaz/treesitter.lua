@@ -8,7 +8,7 @@ require("nvim-treesitter.configs").setup({
     "go",
     "lua",
     "vim",
-    "help",
+    "vimdoc",
     "sql",
     "tsx",
     "typescript",

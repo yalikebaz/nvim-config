@@ -6,6 +6,28 @@ require("other-nvim").setup({
         -- "laravel",
         -- "rails",
         "golang",
+        -- PERSONAL MAPPINGS --
+        -- Component file -> CSS file
+        {
+            pattern = "/src/pages/(.*)/(.*).jsx",
+            target = "/src/pages/%1/%1.module.css",
+            context = "CSS" -- optional
+        },
+        {
+            pattern = "/src/pages/(.*)/(.*).module.css",
+            target = "/src/pages/%1/%1.jsx",
+            context = "Component" -- optional
+        },
+        {
+            pattern = "/src/components/(.*)/(.*).jsx",
+            target = "/src/components/%1/%1.module.css",
+            context = "CSS" -- optional
+        },
+        {
+            pattern = "/src/components/(.*)/(.*).module.css",
+            target = "/src/components/%1/%1.jsx",
+            context = "Component" -- optional
+        },
         -- WORK MAPPINGS --
         -- Go file -> model file/constants file
         {

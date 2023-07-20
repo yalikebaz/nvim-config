@@ -93,7 +93,14 @@ return packer.startup(function(use)
     use("lukas-reineke/indent-blankline.nvim") -- Shows indent lines
 
     -- Snippets
-    use("L3MON4D3/LuaSnip")         --snippet engine
+    use "rafamadriz/friendly-snippets"
+    use {
+        'L3MON4D3/LuaSnip', -- snippet engine
+        config = function()
+            require("luasnip/loaders/from_vscode").load({
+                paths = { "~/.local/share/nvim/site/pack/packer/start/friendly-snippets" } })
+        end
+    }
     use("saadparwaiz1/cmp_luasnip") -- snippet oompletionslua
 
     use({

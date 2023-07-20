@@ -133,6 +133,24 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
+local function my_on_attach(bufnr)
+    local api = require "nvim-tree.api"
+
+    local function opts(desc)
+        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
+
+    -- default mappings
+    api.config.mappings.default_on_attach(bufnr)
+
+    -- custom mappings
+    vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
+    vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+    vim.keymap.set('n', 'w', api.node.open.edit, opts('Help'))
+    vim.keymap.set('n', '.', api.tree.change_root_to_node, opts('CD'))
+    vim.keymap.set('n', '<BS>', api.tree.change_root_to_parent, opts('Up'))
+end
+
 -- empty setup using defaults
 -- require("nvim-tree").setup()
 
@@ -141,6 +159,7 @@ require("nvim-tree").setup({
     sort_by = "case_sensitive",
     prefer_startup_root = true,
     -- sync_root_with_cwd = true,
+    on_attach = my_on_attach,
     diagnostics = {
         enable = true,
         show_on_dirs = true,
@@ -184,5 +203,6 @@ require("nvim-tree").setup({
         ignore = false
     },
 })
+
 vim.cmd(":hi NvimTreeRootFolder guifg='grey'") -- FIX: Why isn't this working? The command is right, but it's not being called for some reason
 -- TODO: Consider switching to neo-tree. Since nvim-tree opens files with absolute paths, which makes winbar annoying

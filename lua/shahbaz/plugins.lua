@@ -47,6 +47,20 @@ packer.init({
 return packer.startup(function(use)
     use("wbthomason/packer.nvim") -- Have packer manage itself
 
+    -- Debugger --
+    use { "mfussenegger/nvim-dap" }
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, config = function() require('dapui').setup() end }
+    use 'theHamsta/nvim-dap-virtual-text'
+    use { 'leoluz/nvim-dap-go',
+        config = function() require('dap-go').setup() end }
+    use { 'folke/neodev.nvim',
+        config = function()
+            require('neodev').setup(
+                { library = { plugins = { "nvim-dap-ui" }, types = true } }
+            )
+        end
+    }
+
     -- Navigation --
     use 'rgroli/other.nvim'
     use 'mbbill/undotree'

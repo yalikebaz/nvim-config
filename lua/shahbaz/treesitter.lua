@@ -63,7 +63,7 @@
 -- vim.cmd("set foldlevelstart=20")
 
 
--- I had some MAD treesitter problems :), i solved it by using this guy's treesitter config: https://dev.to/craftzdog/my-neovim-setup-for-react-typescript-tailwind-css-etc-58fb 
+-- I had some MAD treesitter problems :), i solved it by using this guy's treesitter config: https://dev.to/craftzdog/my-neovim-setup-for-react-typescript-tailwind-css-etc-58fb
 -- I'm guessing it had to do with the ensure_installed section... maybe "javascript"?
 local status, ts = pcall(require, "nvim-treesitter.configs")
 if (not status) then return end
@@ -91,6 +91,7 @@ ts.setup {
     autotag = {
         enable = true,
     },
+    auto_install = true,
 }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()

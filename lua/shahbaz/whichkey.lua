@@ -20,7 +20,7 @@ local setup = {
             windows = true,       -- default bindings on <c-w>
             nav = true,           -- misc bindings to work with windows
             z = true,             -- bindings for folds, spelling and others prefixed with z
-            g = true,             -- bindings for prefixed with g
+            g = false,            -- bindings for prefixed with g
         },
     },
     -- add operators that will trigger motion and text object completion
@@ -66,6 +66,7 @@ local setup = {
         -- most people should not need to change this
         i = { "j", "k" },
         v = { "j", "k" },
+        -- n = { "g" },
     },
 }
 
@@ -92,6 +93,18 @@ local mappings = {
     -- ["O"] = { "<cmd>OtherClear<cr><cmd>Other<cr>", "Other clear" },
     ["b"] = { "<cmd>:Telescope buffers<cr>", "Show all buffers" },
     [" "] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Show harpoon menu" },
+    d = {
+        name = "Debugger",
+        b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle breakpoint" },
+        u = { "<cmd>lua require('dapui').toggle()<cr>", "DAP UI" },
+        r = { "<cmd>lua require('dapui').open({reset = true})<cr>", "Reset UI" },
+        c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
+        n = { "<cmd>lua require('dap').step_over()<cr>", "Step over" },
+        i = { "<cmd>lua require('dap').step_into()<cr>", "Step into" },
+        o = { "<cmd>lua require('dap').step_out()<cr>", "Step out" },
+        t = { "<cmd>lua require('dap').terminate()<cr>", "Terminate" },
+    },
+
     f = {
         name = "Find",
         a = { "<cmd>Alpha<cr>", "Alpha" },
@@ -243,8 +256,8 @@ local mappings = {
     --     },
     -- },
 
-    T = {
-        name = "Toggle vim options",
+    o = {
+        name = "Options",
         a = {
             "<cmd>set autochdir!<cr>:echo 'setting changed to: '|set autochdir?<cr>",
             "Toggle auto-change directory",

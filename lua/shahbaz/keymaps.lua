@@ -26,6 +26,13 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Navigation
+
+-- vim.cmd([[autocmd VimEnter * silent! execute "normal! :nunmap go<CR>"]])
+-- vim.api.nvim_del_keymap('n', 'go')
+-- FIX: Other mapping has broken?
+keymap("n", "go", ":Other<cr>", opts)
+keymap("n", "gO", ":OtherClear<cr>:Other<cr>", opts)
+-- vim.api.nvim_set_keymap('n', 'go', ':Other<CR>', { noremap = true })
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
@@ -37,8 +44,7 @@ keymap("n", "<leader>q", ":q <CR>", { silent = true })
 keymap("n", "<Esc>", ":nohl<CR>|:echo<CR>", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
-keymap("n", "go", ":Other<cr>", opts)
-keymap("n", "gO", ":OtherClear<cr>:Other<cr>", opts)
+keymap("n", "ga", ":AerialToggle<cr>", opts)
 
 -- Surround
 -- TODO: unmap the S key... idk how lol
@@ -64,29 +70,49 @@ keymap("n", "<S-h>", ":tabprevious<CR>", opts)
 -- keymap("n", "<cr>", "<ESC>ciw", opts) --
 
 -- Insert --
-keymap("i", "jk", "<ESC>", opts) -- Press jk fast to enter
+keymap("i", "jk", "<ESC>", opts)        -- Press jk fast to enter
 keymap("i", "kj", "<ESC>", opts)
 keymap("i", "ww", "<ESC>:w <CR>", opts) -- Save
 
 -- Snippets --
 -- Use <C-n> and <C-p> to jump back/forward respectively through snippets
+-- keymap(
+--   "i",
+--   "<C-n>",
+--   -- "lua require('luasnip').luasnip#expand_or_jumpable() ? '' : '<Tab>'",
+--   "<esc>:lua require('luasnip').jump(1)<CR>",
+--   opts
+-- )
+-- keymap(
+--   "s",
+--   "<C-n>",
+--   -- "lua require('luasnip').luasnip#expand_or_jumpable() ? '' : '<Tab>'",
+--   "<esc>:lua require('luasnip').jump(1)<CR>",
+--   opts
+-- )
+--
+-- keymap("i", "<C-p>", "<esc>:lua require('luasnip').jump(-1)<CR>", opts)
+-- keymap("s", "<C-p>", "<esc>:lua require('luasnip').jump(-1)<CR>", opts)
+
+-- new
 keymap(
-  "i",
-  "<C-n>",
-  -- "lua require('luasnip').luasnip#expand_or_jumpable() ? '' : '<Tab>'",
-  "<esc>:lua require('luasnip').jump(1)<CR>",
-  opts
+    "i",
+    "<Tab>",
+    -- "lua require('luasnip').luasnip#expand_or_jumpable() ? '' : '<Tab>'",
+    "<esc>:lua require('luasnip').jump(1)<CR>",
+    opts
 )
 keymap(
-  "s",
-  "<C-n>",
-  -- "lua require('luasnip').luasnip#expand_or_jumpable() ? '' : '<Tab>'",
-  "<esc>:lua require('luasnip').jump(1)<CR>",
-  opts
+    "s",
+    "<Tab>",
+    -- "lua require('luasnip').luasnip#expand_or_jumpable() ? '' : '<Tab>'",
+    "<esc>:lua require('luasnip').jump(1)<CR>",
+    opts
 )
 
-keymap("i", "<C-p>", "<esc>:lua require('luasnip').jump(-1)<CR>", opts)
-keymap("s", "<C-p>", "<esc>:lua require('luasnip').jump(-1)<CR>", opts)
+keymap("i", "<S-Tab>", "<esc>:lua require('luasnip').jump(-1)<CR>", opts)
+keymap("s", "<S-Tab>", "<esc>:lua require('luasnip').jump(-1)<CR>", opts)
+-- end
 
 -- Visual --
 -- Stay in indent mode

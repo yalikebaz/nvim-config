@@ -95,14 +95,16 @@ local mappings = {
     [" "] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Show harpoon menu" },
     d = {
         name = "Debugger",
+        d = { "<cmd>:GoDebug<cr>", "Debug" },
         b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle breakpoint" },
         u = { "<cmd>lua require('dapui').toggle()<cr>", "DAP UI" },
         r = { "<cmd>lua require('dapui').open({reset = true})<cr>", "Reset UI" },
         c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
+        C = { "<cmd>:GoDbgConfig<cr>", "Debug config" },
         n = { "<cmd>lua require('dap').step_over()<cr>", "Step over" },
         i = { "<cmd>lua require('dap').step_into()<cr>", "Step into" },
         o = { "<cmd>lua require('dap').step_out()<cr>", "Step out" },
-        t = { "<cmd>lua require('dap').terminate()<cr>", "Terminate" },
+        s = { "<cmd>:GoDebug -s<cr>", "Stop debugging" },
     },
 
     f = {

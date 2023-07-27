@@ -59,13 +59,13 @@ dashboard.section.header.val = {
 }
 dashboard.section.buttons.val = {
     -- For your own icons: https://www.nerdfonts.com/cheat-sheet
-    dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
-    dashboard.button("e", "פּ  Open Nvim Tree", "<cmd>NvimTreeToggle<cr>"),
+    dashboard.button("f", "󰱼  Find file", ":Telescope find_files <CR>"),
+    dashboard.button("e", "  Open Nvim Tree", "<cmd>NvimTreeToggle<cr>"),
     -- dashboard.button("e", "פּ  Open file explorer", "<cmd>Neotree toggle<cr>"),
     -- dashboard.button("m", "  Bookmarks", ":Telescope vim_bookmarks all<CR>"),
-    dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
-    dashboard.button("F", "  Find text", ":Telescope live_grep <CR>"),
-    dashboard.button("p", "  Plugin configuration", ":e ~/.config/nvim/lua/shahbaz/plugins.lua <CR>|:41<CR>"),
+    dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
+    dashboard.button("F", "󱎸  Find text", ":Telescope live_grep <CR>"),
+    dashboard.button("p", "  Plugin configuration", ":e ~/.config/nvim/lua/shahbaz/plugins.lua <CR>|:41<CR>"),
     dashboard.button(
         "c",
         "  Change colorscheme",
@@ -73,10 +73,10 @@ dashboard.section.buttons.val = {
     ),
     dashboard.button(
         "t",
-        "嗀 Toggle light/dark mode",
+        "󰔎 Toggle light/dark mode",
         ":luafile ~/.config/nvim/lua/shahbaz/toggle-colorscheme.lua<cr>"
     ),
-    dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+    dashboard.button("q", "󰿅  Quit Neovim", ":qa<CR>"),
 }
 
 function Footer()

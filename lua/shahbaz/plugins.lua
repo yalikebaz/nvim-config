@@ -48,11 +48,11 @@ return packer.startup(function(use)
     use("wbthomason/packer.nvim") -- Have packer manage itself
 
     -- Debugger --
+    use 'ray-x/go.nvim'
+    -- use 'leoluz/nvim-dap-go' NOTE: Got rid of this plugin, couldn't figure out how to make it load local environment variables. Using the above instead
     use { "mfussenegger/nvim-dap" }
-    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, config = function() require('dapui').setup() end }
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use 'theHamsta/nvim-dap-virtual-text'
-    use { 'leoluz/nvim-dap-go',
-        config = function() require('dap-go').setup() end }
     use { 'folke/neodev.nvim',
         config = function()
             require('neodev').setup(
@@ -62,6 +62,7 @@ return packer.startup(function(use)
     }
 
     -- Navigation --
+    use 'itchyny/vim-qfedit' -- Allows you to edit the loclist/qf list
     use 'rgroli/other.nvim'
     use 'mbbill/undotree'
     use {

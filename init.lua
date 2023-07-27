@@ -9,7 +9,6 @@ require("shahbaz.options")
 -- Navigation
 require("shahbaz.other")
 require("shahbaz.undo-tree")
--- require("shahbaz.neo-tree")
 require("shahbaz.nvim-tree")
 require("shahbaz.telescope")
 require("shahbaz.alpha")
@@ -25,6 +24,8 @@ require("shahbaz.lspzero")
 require("shahbaz.null-ls")
 
 -- Context related
+require("shahbaz/DAP/nvim-go")
+require("shahbaz/DAP/dap-ui")
 require("shahbaz.todo-comments")
 require("shahbaz.comment")
 require("shahbaz.autopairs")

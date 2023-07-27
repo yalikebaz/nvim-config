@@ -124,3 +124,5 @@ telescope.setup({
         },
     },
 })
+
+vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"

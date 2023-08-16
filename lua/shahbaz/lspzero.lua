@@ -92,6 +92,10 @@ lsp.on_attach(function(client, bufnr)
         vim.cmd [[Telescope lsp_references]]
     end, opts)
 
+    vim.keymap.set("n", "go", function()
+        vim.cmd [[Other]]
+    end, opts)
+
     -- vim.cmd("lua require('telescope.builtin').lsp_references()")
     -- vim.keymap.set("n", "<leader>vrn", function()
     --   vim.lsp.buf.rename()

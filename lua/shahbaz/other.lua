@@ -7,6 +7,28 @@ require("other-nvim").setup({
         -- "rails",
         "golang",
         -- PERSONAL MAPPINGS --
+        -- Handler -> Model
+        {
+            pattern = "/internal/models/(.*).go",
+            target = "/cmd/pkg/handlers/%1.go",
+            context = "Handler" -- optional
+        },
+        {
+            pattern = "/cmd/pkg/handlers/(.*).go",
+            target = "/internal/models/%1.go",
+            context = "Model" -- optional
+        },
+        -- {
+        --     pattern = "/src/components/(.*)/(.*).jsx",
+        --     target = "/src/components/%1/%1.module.css",
+        --     context = "CSS" -- optional
+        -- },
+        -- {
+        --     pattern = "/src/components/(.*)/(.*).module.css",
+        --     target = "/src/components/%1/%1.jsx",
+        --     context = "Component" -- optional
+        -- },
+
         -- Component file -> CSS file
         {
             pattern = "/src/pages/(.*)/(.*).jsx",

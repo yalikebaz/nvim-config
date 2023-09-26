@@ -14,7 +14,7 @@ local setup = {
         -- the presets plugin, adds help for a bunch of default keybindings in Neovim
         -- No actual key bindings are created
         presets = {
-            operators = false,    -- adds help for operators like d, y, ... and registers them for motion / text object completion
+            operators = true,     -- adds help for operators like d, y, ... and registers them for motion / text object completion
             motions = true,       -- adds help for motions
             text_objects = false, -- help for text objects triggered after entering an operator
             windows = true,       -- default bindings on <c-w>
@@ -80,6 +80,7 @@ local opts = {
 }
 
 local mappings = {
+    --  NOTE: Don't use purely tab for a mapping, as it actually gets interpreted as <C-i> under the hood
     ["a"] = { "<cmd>:AerialToggle<cr>", "Toggle aerial" },
     ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
@@ -92,7 +93,10 @@ local mappings = {
     -- ["o"] = { "<cmd>Other<cr>", "Other file" }, -- moved to keymaps.lua, as "go" and "gO"
     -- ["O"] = { "<cmd>OtherClear<cr><cmd>Other<cr>", "Other clear" },
     ["b"] = { "<cmd>:Telescope buffers<cr>", "Show all buffers" },
-    [" "] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Show harpoon menu" },
+    [" "] = { ":lua require('harpoon.ui').nav_file(1)<cr>", "Jump to harpoon file 1" },
+    ["h"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon menu" },
+    ["2"] = { ":lua require('harpoon.ui').nav_file(2)<cr>", "Jump to harpoon file 2" },
+    ["3"] = { ":lua require('harpoon.ui').nav_file(3)<cr>", "Jump to harpoon file 3" },
     d = {
         name = "Debugger",
         d = { "<cmd>:GoDebug<cr>", "Debug" },
@@ -106,7 +110,6 @@ local mappings = {
         o = { "<cmd>lua require('dap').step_out()<cr>", "Step out" },
         s = { "<cmd>:GoDebug -s<cr>", "Stop debugging" },
     },
-
     f = {
         name = "Find",
         a = { "<cmd>Alpha<cr>", "Alpha" },
@@ -143,11 +146,10 @@ local mappings = {
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
     }, -- By the way, you can nest groups! Just follow the same syntax
-    h = {
+    H = {
         name = "Harpoon",
         a = { "<cmd>lua require('harpoon.mark').add_file()<cr>|<cmd>lua print('File added to harpoon')<cr>",
             "Add to harpoon" },
-        h = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon menu" },
     },
     S = {
         name = "Substitute",
@@ -190,7 +192,8 @@ local mappings = {
     },
     g = {
         name = "Git",
-        g = { "<cmd>silent !~/.config/nvim/lazygit/lazygit.sh<cr>", "Lazygit" },
+        -- g = { "<cmd>silent !~/.config/nvim/lazygit/lazygit.sh<cr>", "Lazygit" },
+        g = { ":LazyGit<cr>", "Lazygit" },
         j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
         k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
         l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },

@@ -58,9 +58,6 @@
 --   },
 -- })
 --
--- vim.cmd("set foldmethod=expr")
--- vim.cmd("set foldexpr=nvim_treesitter#foldexpr()")
--- vim.cmd("set foldlevelstart=20")
 
 
 -- I had some MAD treesitter problems :), i solved it by using this guy's treesitter config: https://dev.to/craftzdog/my-neovim-setup-for-react-typescript-tailwind-css-etc-58fb

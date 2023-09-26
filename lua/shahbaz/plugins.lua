@@ -46,6 +46,7 @@ packer.init({
 -- My plugins here, format is: `use("user/repo")`
 return packer.startup(function(use)
     use("wbthomason/packer.nvim") -- Have packer manage itself
+    use("kdheepak/lazygit.nvim") -- Nice plugin to use lazygit
 
     -- Debugger --
     use 'ray-x/go.nvim'

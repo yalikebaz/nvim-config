@@ -14,10 +14,12 @@ bind-key C-a send-prefix
 
 # easier splits
 unbind %
-bind | split-window -h
+bind | split-window -h -c "#{pane_current_path}"
+bind = split-window -h
 
 unbind '"'
-bind - split-window -v
+bind - split-window -v -c "#{pane_current_path}"
+bind _ split-window -v
 
 # easy reload of config
 unbind r 

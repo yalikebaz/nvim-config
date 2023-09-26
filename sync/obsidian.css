@@ -1,0 +1,22 @@
+/* I chose this to match the theme Things */
+
+.cm-s-obsidian span.cm-inline-code {
+    color: #FD9C73;
+
+}
+
+.cm-header-1, .markdown-preview-view h1 {
+    color: #48B632;
+}
+
+.cm-header-2, .markdown-preview-view h2 {
+    color: #D7C225;
+}
+
+.cm-cursorLayer {
+    animation: none !important;
+}
+
+.cm-cursorLayer {
+    animation: none !important;
+}

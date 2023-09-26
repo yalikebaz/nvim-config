@@ -7,7 +7,8 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
     "tsserver",
-    "gopls"
+    "gopls",
+    "eslint"
 })
 
 -- Fix Undefined global 'vim'
@@ -61,6 +62,37 @@ lsp.set_preferences({
         info = "I",
     },
 })
+
+--  These functions get rid of node_module results in goto definition by filtering out .d.ts files
+local function filter(arr, fn)
+    if type(arr) ~= "table" then
+        return arr
+    end
+
+    local filtered = {}
+    for k, v in pairs(arr) do
+        if fn(v, k, arr) then
+            table.insert(filtered, v)
+        end
+    end
+
+    return filtered
+end
+
+local function filterReactDTS(value)
+    return not string.match(value.filename, '%.d%.ts$')
+end
+
+local function on_list(options)
+    local items = options.items
+    if #items > 1 then
+        items = filter(items, filterReactDTS)
+    end
+
+    vim.fn.setqflist({}, ' ', { title = options.title, items = items, context = options.context })
+    vim.api.nvim_command('cfirst') -- or maybe you want 'copen' instead of 'cfirst'
+end
+--  end of filter functions
 
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }

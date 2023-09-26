@@ -45,12 +45,6 @@ keymap("n", "<Esc>", ":nohl<CR>|:echo<CR>", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "ga", ":AerialToggle<cr>", opts)
-keymap("n", "<Tab>1", ":lua require('harpoon.ui').nav_file(1)<cr>", opts)
-keymap("n", "<Tab><Tab>", ":lua require('harpoon.ui').nav_file(1)<cr>", opts)
-keymap("n", "<Tab>2", ":lua require('harpoon.ui').nav_file(2)<cr>", opts)
-keymap("n", "<Tab>3", ":lua require('harpoon.ui').nav_file(3)<cr>", opts)
-keymap("n", "<Tab>4", ":lua require('harpoon.ui').nav_file(4)<cr>", opts)
-keymap("n", "<Tab>5", ":lua require('harpoon.ui').nav_file(5)<cr>", opts)
 
 -- Surround
 -- TODO: unmap the S key... idk how lol

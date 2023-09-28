@@ -46,7 +46,8 @@ packer.init({
 -- My plugins here, format is: `use("user/repo")`
 return packer.startup(function(use)
     use("wbthomason/packer.nvim") -- Have packer manage itself
-    use("kdheepak/lazygit.nvim") -- Nice plugin to use lazygit
+    use("kdheepak/lazygit.nvim")  -- Nice plugin to use lazygit
+    use { "rest-nvim/rest.nvim", requires = { "nvim-lua/plenary.nvim" } } -- HTTP client
 
     -- Debugger --
     use 'ray-x/go.nvim'
@@ -177,7 +178,6 @@ return packer.startup(function(use)
     -- Miscellaneous
     use("nvim-lua/popup.nvim")     -- An implementation of the Popup API from vim in Neovim
     use("nvim-lua/plenary.nvim")   -- Useful lua functions used by lots of plugins
-    use("diepm/vim-rest-console")  -- A REST client
     use("lewis6991/gitsigns.nvim") -- Git signs
 
     -- use("hrsh7th/cmp-cmdline") -- cmdline completions. Not sure what this is or if I need it

@@ -5,6 +5,7 @@
 require("shahbaz.plugins")
 require("shahbaz.keymaps")
 require("shahbaz.options")
+require("shahbaz.rest-nvim")
 
 -- Navigation
 require("shahbaz.other")

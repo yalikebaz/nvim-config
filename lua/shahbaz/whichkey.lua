@@ -1,3 +1,4 @@
+local rest_nvim = require 'shahbaz.rest-nvim'
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
     return
@@ -286,7 +287,7 @@ local mappings = {
     },
     r = {
         name = "REST Client",
-        o = {
+        o = { -- TODO: deprecated, update this
             function()
                 -- Check if the file exists
                 local f = io.open("RESTClient (delete me).rest", "r")
@@ -329,7 +330,13 @@ Content-Type: application/json
             end,
             "Open REST client (VRC)",
         },
-        c = { ":call VrcQuery()<cr><C-w>l:only<cr>", "Call endpoint" },
+        c = { "<Plug>RestNvim", "Call endpoint" },
+        f = {
+            function()
+                rest_nvim.format_graphql_prettier()
+            end,
+            "Format graphQL"
+        },
     },
     s = {
         name = "Split",

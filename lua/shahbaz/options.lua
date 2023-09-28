@@ -29,6 +29,7 @@ vim.opt.softtabstop = 4
 vim.cmd("set foldmethod=expr")
 vim.cmd("set foldexpr=nvim_treesitter#foldexpr()")
 vim.cmd("set foldlevelstart=20")
+vim.cmd("tunmap <Esc>")           -- Unmaps the <esc> key in terminal mode, which allows lazygit to work
 
 vim.opt.cursorline = true         -- highlight the current line
 vim.opt.relativenumber = true     -- set relative numbered lines

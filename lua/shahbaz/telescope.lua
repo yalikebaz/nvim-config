@@ -89,6 +89,9 @@ telescope.setup({
         buffers = {
             initial_mode = "normal" -- Opens telescope in normal mode when running :Telescope buffers
         },
+        find_files = {
+            hidden = true
+        },
         oldfiles = {
             initial_mode = "normal"
         },

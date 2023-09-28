@@ -63,7 +63,7 @@ lsp.set_preferences({
     },
 })
 
---  These functions get rid of node_module results in goto definition by filtering out .d.ts files
+--  INFO: These functions get rid of node_module results in goto definition by filtering out .d.ts files
 local function filter(arr, fn)
     if type(arr) ~= "table" then
         return arr
@@ -96,7 +96,7 @@ end
 
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition { on_list = on_list } end, opts) -- INFO: written like this to implement filter fn
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)

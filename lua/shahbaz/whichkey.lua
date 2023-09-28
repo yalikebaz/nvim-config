@@ -330,7 +330,6 @@ Content-Type: application/json
             end,
             "Open REST client (VRC)",
         },
-        -- c = { ":call VrcQuery()<cr><C-w>l:only<cr>", "Call endpoint" },
         c = { "<Plug>RestNvim", "Call endpoint" },
         f = {
             function()

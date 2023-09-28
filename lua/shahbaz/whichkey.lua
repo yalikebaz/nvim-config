@@ -288,33 +288,43 @@ local mappings = {
         name = "REST Client",
         o = {
             function()
+                -- Check if the file exists
                 local f = io.open("RESTClient (delete me).rest", "r")
+
+                -- Open or create the file in Neovim
+                vim.cmd(":e RESTClient (delete me).rest")
+
+                -- If the file doesn't exist, populate it with default content
                 if f == nil then
-                    vim.cmd(":e RESTClient (delete me).rest")
-                    vim.cmd("normal A# Don't save this file, just run the REST client commands.")
-                    vim.cmd("normal o# If you do save it, REMEMBER TO DELETE IT AFTER")
-                    vim.cmd("normal o") -- new line
-                    vim.cmd("normal ohttp://localhost: ")
+                    local content = [[
+# Don't save this file, just run the REST client commands.
+# If you do save it, REMEMBER TO DELETE IT AFTER
 
-                    vim.cmd("normal o-i # needed for formatting")
-                    vim.cmd("normal o")
-                    vim.cmd("normal o# HEADERS, optional")
-                    vim.cmd("normal oContent-Type: application/json")
-                    vim.cmd("normal o# Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")
-                    vim.cmd("normal o# Cache-Control: no-cache")
-                    vim.cmd("normal o# Connection: keep-alive")
-                    vim.cmd("normal o# Cookie: userId=ac32:dfbe:8f1a:249c; sid=cfb48e3d98fcb1")
-                    vim.cmd("normal o# User-Agent: VRCnt-Type: application/json")
+http://localhost:8080
 
-                    vim.cmd("normal o")
-                    vim.cmd("normal o# ENDPOINTS")
-                    vim.cmd("normal o# GET /endpoint")
-                    vim.cmd("normal o# POST /endpoint")
-                    vim.cmd('normal o{"key": "new key","value": "new value"}')
-                    vim.cmd(":4")
+-i # needed for formatting
+
+# HEADERS, optional
+Content-Type: application/json
+# Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+# Cache-Control: no-cache
+# Connection: keep-alive
+# Cookie: userId=ac32:dfbe:8f1a:249c; sid=cfb48e3d98fcb1
+# User-Agent: VRCnt-Type: application/json
+
+# ENDPOINTS
+# GET /endpoint
+# POST /endpoint
+{"key": "new key","value": "new value"}
+]]
+
+                    -- Set the content of the buffer
+                    vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(content, '\n'))
+
+                    -- Move cursor to line 4 and enter replace mode
+                    -- vim.api.nvim_win_set_cursor(0, { 4, 0 })
+                    vim.api.nvim_win_set_cursor(0, { 4, 17 }) -- Move cursor to line 4, column 18 (zero-index
                     vim.cmd("startreplace")
-                else
-                    vim.cmd(":e RESTClient (delete me).rest")
                 end
             end,
             "Open REST client (VRC)",

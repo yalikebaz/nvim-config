@@ -15,9 +15,9 @@ local install_path = test_dir .. "/pack/packer/start/packer.nvim"
 local install_plugins = false
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	vim.cmd("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
-	vim.cmd("packadd packer.nvim")
-	install_plugins = true
+    vim.cmd("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+    vim.cmd("packadd packer.nvim")
+    install_plugins = true
 end
 
 local packer = require("packer")
@@ -25,8 +25,8 @@ local packer = require("packer")
 -- survival setup
 local opts = { noremap = true, silent = true }
 vim.opt.relativenumber = true -- set relative numbered lines
-vim.opt.number = true -- set relative numbered lines
-vim.opt.scrolloff = 10 -- Max lines padding
+vim.opt.number = true         -- set relative numbered lines
+vim.opt.scrolloff = 10        -- Max lines padding
 vim.opt.clipboard = "unnamedplus"
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -38,36 +38,37 @@ vim.api.nvim_set_keymap("n", "<leader>q", ":q<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>e", ":Lex<cr>", opts)
 -- end survival setup
 
-packer.init({ package_root = test_dir .. "/pack",
-	compile_path = test_dir .. "/plugin/packer_compiled.lua",
+packer.init({
+    package_root = test_dir .. "/pack",
+    compile_path = test_dir .. "/plugin/packer_compiled.lua",
 })
 
 packer.startup(function()
-	local use = function(args)
-		if type(args) == "string" then
-			local plugin = args
-			args = { plugin }
-		end
+    local use = function(args)
+        if type(args) == "string" then
+            local plugin = args
+            args = { plugin }
+        end
 
-		args.event = "User LoadPlugins"
+        args.event = "User LoadPlugins"
 
-		packer.use(args)
-	end
+        packer.use(args)
+    end
 
-	-- Packer can manage itself
-	packer.use("wbthomason/packer.nvim")
+    -- Packer can manage itself
+    packer.use("wbthomason/packer.nvim")
 
-	-- TEST PLUGINS HERE
-	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
+    -- TEST PLUGINS HERE
+    use("nvim-lua/plenary.nvim")               -- Useful lua functions used by lots of plugins
 
-	-- END TEST PLUGINS
-	
-	if install_plugins then
-		packer.sync()
-	else
-		-- load plugins at your earliest convenience
-		vim.defer_fn(function()
-			vim.cmd("doautocmd User LoadPlugins")
-		end, 1)
-	end
+    -- END TEST PLUGINS
+
+    if install_plugins then
+        packer.sync()
+    else
+        -- load plugins at your earliest convenience
+        vim.defer_fn(function()
+            vim.cmd("doautocmd User LoadPlugins")
+        end, 1)
+    end
 end)

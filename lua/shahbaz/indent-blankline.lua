@@ -1,22 +1,64 @@
-vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
--- vim.opt.listchars:append "eol:↴"
-
--- require("indent_blankline").setup {
---     space_char_blankline = " ",
---     show_current_context = true,
---     show_current_context_start = true,
+-- local highlight = {
+--     "RainbowRed",
+--     "RainbowYellow",
+--     "RainbowBlue",
+--     "RainbowOrange",
+--     "RainbowGreen",
+--     "RainbowViolet",
+--     "RainbowCyan",
 -- }
+--
+-- local hooks = require "ibl.hooks"
+-- -- create the highlight groups in the highlight setup hook, so they are reset
+-- -- every time the colorscheme changes
+-- hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+--     vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#662121" })
+--     vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#767621" })
+--     vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#216631" })
+--     vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#325a5e" })
+--     vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#324b7b" })
+--     vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+--     vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#562155" })
+-- end)
+--
+-- require("ibl").setup { indent = { highlight = highlight } }
 
-local hl_list = {}
-for i, color in pairs({ '#662121', '#767621', '#216631', '#325a5e', '#324b7b', '#562155' }) do
-    local name = 'IndentBlanklineIndent' .. i
-    vim.api.nvim_set_hl(0, name, { fg = color })
-    table.insert(hl_list, name);
-end
-require('ibl').setup {
-    -- extra stuff
-    char_highlight_list = hl_list,
-    show_current_context = true
-    -- extra stuff
+-- INFO:  new
+local highlight = {
+    "RainbowRed",
+    "RainbowYellow",
+    "RainbowBlue",
+    "RainbowOrange",
+    "RainbowGreen",
+    "RainbowViolet",
+    "RainbowCyan",
+}
+
+local hooks = require "ibl.hooks"
+-- create the highlight groups in the highlight setup hook, so they are reset
+-- every time the colorscheme changes
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+    vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+    vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+    vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+    vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+    vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+    vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+end)
+
+-- vim.cmd [[highlight MyScopeHighlight guifg=#FC5CB9]]
+
+require("ibl").setup {
+    indent = {
+        highlight = highlight,
+        char = { "⎜" },
+    },
+    scope = {
+        -- highlight = "MyScopeHighlight",
+        priority = 2000,
+        char = { "▎"}
+        -- FIX: the show_start line is not 1 color... highlights are messed up
+        -- show_start = false
+    }
 }

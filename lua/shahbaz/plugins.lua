@@ -47,7 +47,7 @@ packer.init({
 return packer.startup(function(use)
     use("wbthomason/packer.nvim") -- Have packer manage itself
     use("kdheepak/lazygit.nvim")  -- Nice plugin to use lazygit
-    use { "rest-nvim/rest.nvim", requires = { "nvim-lua/plenary.nvim" } } -- HTTP client
+    use { "rest-nvim/rest.nvim", requires = { "nvim-lua/plenary.nvim" } } -- HTTP client, requires jq (brew install jq)
 
     -- Debugger --
     use 'ray-x/go.nvim'

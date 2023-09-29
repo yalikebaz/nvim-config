@@ -81,6 +81,7 @@ ts.setup {
         "fish",
         "json",
         "yaml",
+        "http",
         "css",
         "html",
         "lua"

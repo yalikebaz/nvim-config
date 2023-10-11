@@ -51,13 +51,6 @@ vim.opt.shortmess:append "c"
 -- Define autocommands for specific file types
 vim.cmd [[
    augroup FileTypeSettings
-        " autocmd BufAdd,BufEnter,BufReadPre,FileReadPre *.ts,*.tsx,*.js,*.jsx setlocal tabstop=2 shiftwidth=2
-        " autocmd BufAdd,BufEnter,BufReadPre,FileReadPre *.go setlocal tabstop=4 shiftwidth=4
-        " autocmd BufAdd,BufEnter,BufReadPre,FileReadPre *.* cd ./
-        " autocmd BufAdd,BufEnter,BufReadPre,FileReadPre *.ts,*.tsx,*.js,*.jsx setlocal tabstop=2 shiftwidth=2
-        " autocmd BufAdd,BufEnter,BufReadPre,FileReadPre *.go setlocal tabstop=4 shiftwidth=4
-        " autocmd BufAdd,BufEnter,BufReadPre,FileReadPre *.* cd ./
-
         autocmd BufAdd,BufEnter,BufRead,BufNewFile *.ts,*.tsx,*.js,*.jsx setlocal tabstop=2 shiftwidth=2
         autocmd BufAdd,BufEnter,BufRead,BufNewFile *.go setlocal tabstop=4 shiftwidth=4
         autocmd BufAdd,BufEnter,BufRead,BufNewFile *.* cd ./
@@ -67,8 +60,8 @@ vim.cmd [[
    augroup END
 ]]
 
+vim.cmd "set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,n-v-c-i:blinkon100"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work. Not even sure what this is?
-vim.cmd "set noautochdir"          -- Auto change directory, makes iTerm cd into the cwd
--- vim.cmd [[:autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>]] --This will automatically close the quickfix list after selecting a file from it
+vim.cmd "set noautochdir"          -- Auto change directory, makes terminal cd into the directory accessed in nvim

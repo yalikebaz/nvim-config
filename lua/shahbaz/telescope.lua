@@ -104,10 +104,6 @@ telescope.setup({
         todo = {
             initial_mode = "normal"
         }
-        -- vim_bookmarks = { -- FIX: Lol I was confused writing this. Not sure what i was trying to achieve.
-        --     width_text = 40,
-        --     prompt_title = "test",
-        -- },
     },
     extensions = {
         -- Your extension configuration goes here:
@@ -118,12 +114,6 @@ telescope.setup({
         media_files = {
             filetypes = { "png", "webp", "jpg", "jpeg" },
             find_cmd = "rg", -- find command (defaults to `fd`)
-        },
-        -- TODO: What am I trying to do here? Rename the window title?
-        vim_bookmarks = {
-            width_text = 40,
-            width_line = 1,
-            prompt_title = "test",
         },
     },
 })

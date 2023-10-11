@@ -1,17 +1,20 @@
+-- Change the Colorscheme variable to set the default theme on launch
+
 -- NIGHT
-Colorscheme = "dracula"
+-- Colorscheme = "dracula"
+Colorscheme = "tokyonight-moon"
 -- Colorscheme = "oxocarbon"
---Colorscheme = "codemonkey"
+-- Colorscheme = "codemonkey"
 
 -- DAY
 -- Colorscheme = "catppuccin"
 
 function SetScheme(scheme)
-	local status_ok, _ = pcall(vim.cmd, "colorscheme " .. scheme)
-	if not status_ok then
-		vim.notify("Colorscheme " .. Colorscheme .. " not found!")
-		return
-	end
+    local status_ok, _ = pcall(vim.cmd, "colorscheme " .. scheme)
+    if not status_ok then
+        vim.notify("Colorscheme " .. Colorscheme .. " not found!")
+        return
+    end
 end
 
 SetScheme(Colorscheme)

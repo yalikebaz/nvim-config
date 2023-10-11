@@ -1,4 +1,4 @@
--- In order to use this test config. In the terminal type nvim -u test_config.lua
+-- In order to use this test config. In the terminal type `nvim -u test_config.lua`
 
 
 -- ignore default config and plugins

@@ -81,7 +81,7 @@ local opts = {
 }
 
 local mappings = {
-    --  NOTE: Don't use purely tab for a mapping, as it actually gets interpreted as <C-i> under the hood
+    --  INFO: Don't use purely tab for a mapping, as it actually gets interpreted as <C-i> under the hood
     ["a"] = { "<cmd>:AerialToggle<cr>", "Toggle aerial" },
     ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
@@ -131,8 +131,6 @@ local mappings = {
         -- F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
         F = { "<cmd>Telescope live_grep <cr>", "Find Text" },
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-        -- m = { "<cmd>Telescope vim_bookmarks all<cr>", "All marks" },
-        -- M = { "<cmd>Telescope vim_bookmarks current_file<cr>", "Marks in current file" },
         -- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" }, --dunno wtf man pages are
         c = {
             "<cmd>lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown({enable_preview=true}))<cr>",

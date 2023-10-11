@@ -184,13 +184,6 @@ require("nvim-tree").setup({
     view = {
         adaptive_size = true,
         preserve_window_proportions = true,
-        -- FIX: deprecated: view.mappings.list has been deprecated in favour of on_attach. Please run :NvimTreeGenerateOnAttach and visit https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach
-        -- mappings = {
-        --     list = {
-        --         { key = "u", action = "dir_up" },
-        --         { key = { "<leader>cd" }, action = "cd" }, --instead of <C-]>
-        --     },
-        -- },
     },
     renderer = {
         group_empty = false,
@@ -203,6 +196,3 @@ require("nvim-tree").setup({
         ignore = false
     },
 })
-
-vim.cmd(":hi NvimTreeRootFolder guifg='grey'") -- FIX: Why isn't this working? The command is right, but it's not being called for some reason
--- TODO: Consider switching to neo-tree. Since nvim-tree opens files with absolute paths, which makes winbar annoying

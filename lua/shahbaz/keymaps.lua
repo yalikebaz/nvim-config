@@ -5,9 +5,7 @@ local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
--- nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
--- nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
-
+-- Adds movements greater than 1 line to the jumplist (more intuitive C-o and C-i commands)
 vim.keymap.set("n", "k", "(v:count > 1 ? 'm`' . v:count : '') . 'k'", { noremap = true, expr = true, silent = true })
 vim.keymap.set("n", "j", "(v:count > 1 ? 'm`' . v:count : '') . 'j'", { noremap = true, expr = true, silent = true })
 
@@ -16,23 +14,10 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
-
--- Normal --
--- Navigation
-
 -- vim.cmd([[autocmd VimEnter * silent! execute "normal! :nunmap go<CR>"]])
 -- vim.api.nvim_del_keymap('n', 'go')
--- FIX: Other mapping has broken?
 keymap("n", "go", ":Other<cr>", opts)
 keymap("n", "gO", ":OtherClear<cr>:Other<cr>", opts)
--- vim.api.nvim_set_keymap('n', 'go', ':Other<CR>', { noremap = true })
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
@@ -50,9 +35,9 @@ keymap("n", "ga", ":AerialToggle<cr>", opts)
 -- TODO: unmap the S key... idk how lol
 keymap("n", "S'", "ysiw'", { silent = true })
 keymap("n", 'S"', 'ysiw"', { silent = true })
-keymap("n", "S(", "ysiw(", { silent = true })
-keymap("n", "S[", "ysiw[", { silent = true })
-keymap("n", "S{", "ysiw{", { silent = true })
+keymap("n", "S)", "ysiw)", { silent = true })
+keymap("n", "S]", "ysiw]", { silent = true })
+keymap("n", "S}", "ysiw}", { silent = true })
 
 -- File formatting
 keymap("n", "<leader>w", ":w <cr>", opts)

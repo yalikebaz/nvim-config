@@ -1,29 +1,3 @@
--- local highlight = {
---     "RainbowRed",
---     "RainbowYellow",
---     "RainbowBlue",
---     "RainbowOrange",
---     "RainbowGreen",
---     "RainbowViolet",
---     "RainbowCyan",
--- }
---
--- local hooks = require "ibl.hooks"
--- -- create the highlight groups in the highlight setup hook, so they are reset
--- -- every time the colorscheme changes
--- hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
---     vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#662121" })
---     vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#767621" })
---     vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#216631" })
---     vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#325a5e" })
---     vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#324b7b" })
---     vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
---     vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#562155" })
--- end)
---
--- require("ibl").setup { indent = { highlight = highlight } }
-
--- INFO:  new
 local highlight = {
     "RainbowRed",
     "RainbowYellow",
@@ -45,20 +19,21 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
     vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
     vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+    -- vim.api.nvim_set_hl(0, "MyScopeHighlight", { fg = "#FC5CB9" })
+    -- vim.api.nvim_set_hl(0, "MyScopeHighlight", { fg = "#FCFF00" })
+    -- vim.api.nvim_set_hl(0, "MyScopeHighlight", { fg = "#45CFB1" })
+    vim.api.nvim_set_hl(0, "MyScopeHighlight", { fg = "#FE8259" })
 end)
-
--- vim.cmd [[highlight MyScopeHighlight guifg=#FC5CB9]]
 
 require("ibl").setup {
     indent = {
-        highlight = highlight,
+        -- highlight = highlight,
         char = { "⎜" },
     },
     scope = {
-        -- highlight = "MyScopeHighlight",
+        highlight = "MyScopeHighlight",
         priority = 2000,
-        char = { "▎"}
-        -- FIX: the show_start line is not 1 color... highlights are messed up
+        char = { "▎" }
         -- show_start = false
     }
 }

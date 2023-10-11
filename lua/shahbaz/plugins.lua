@@ -44,6 +44,7 @@ packer.init({
 
 -- Plugins are located at .local/share/nvim/site/pack/packer/start These are plugins that run on startup
 -- My plugins here, format is: `use("user/repo")`
+-- TODO: Is there some way to organize this file better?
 return packer.startup(function(use)
     use("wbthomason/packer.nvim") -- Have packer manage itself
     use("kdheepak/lazygit.nvim")  -- Nice plugin to use lazygit
@@ -91,8 +92,6 @@ return packer.startup(function(use)
         "lalitmee/browse.nvim",           -- A handy search tool
         requires = { "nvim-telescope/telescope.nvim" },
     })
-    -- use("MattesGroeger/vim-bookmarks") -- better bookmarks
-    -- use("tom-anders/telescope-vim-bookmarks.nvim") -- telescope extension for vim-bookmarks.
     use("BurntSushi/ripgrep") --ripgrep needed for live-grep in telescope
 
     -- Telescope
@@ -159,7 +158,7 @@ return packer.startup(function(use)
     --     end,
     -- })
 
-    -- Color schemes
+    -- Color schemes --
     use 'Mofiqul/dracula.nvim'
     use { 'ribru17/bamboo.nvim' }
     use { 'nyoom-engineering/oxocarbon.nvim' }

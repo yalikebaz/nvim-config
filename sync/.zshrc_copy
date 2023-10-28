@@ -8,10 +8,8 @@ zstyle ':vcs_info:git:*' formats '(%b)'
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
 #PROMPT='%n ${PWD/#$HOME/~} %F{green}%1 ${vcs_info_msg_0_}%F{yellow} > %f'
-PROMPT='%n %F{yellow}[%2d] %F{green}%1 ${vcs_info_msg_0_}%F{yellow} > %f'
-
-# Source client configs
-source ~/.client-configs/rogers.zsh
+# PROMPT='[%D{%f/%m/%y}|%D{%L:%M:%S}] %n %F{yellow}[%2d] %F{green}%1 ${vcs_info_msg_0_}%F{yellow} > %f'
+PROMPT='%D{%f/%m}|%D{%T} %F{yellow}[%2d] %F{green}%1 ${vcs_info_msg_0_}%F{yellow} > %f'
 
 # -------
 # ALIASES
@@ -21,6 +19,9 @@ alias x="exit"
 alias lo30="lsof -i:3000"
 alias lo31="lsof -i:3001"
 alias n="nvim"
+alias lgn="n ~/Library/Application\ Support/lazygit/config.yml"
+alias kittyn="n ~/.config/kitty/kitty.conf"
+alias ls="ls -p --color=auto"
 
 # ---
 # FAV  NAVIGATION
@@ -33,6 +34,7 @@ alias cdon="cd ~/Documents/Obsidian/Zettelkasten/;n .obsidian.vimrc"
 alias cdt="cd ~/.config/tmux"
 alias cdtn="cd ~/.config/tmux;n tmux.conf"
 alias zshrc="nvim ~/.zshrc"
+alias grm="go run main.go"
 
 # ---
 # TMUX
@@ -80,6 +82,7 @@ alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
 alias nr="npm run"
 alias ns="npm start"
 
+
 # PATH 
-# mySQL and lvim stuff
+# Adding mySQL to path environment variable
 export PATH=${PATH}:/usr/local/mysql/bin/:~/.local/bin

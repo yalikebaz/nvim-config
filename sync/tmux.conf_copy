@@ -1,11 +1,14 @@
 #  idk
 set-option -sg escape-time 10
 set-option -g focus-events on
-set-option -g default-terminal "screen-256color"
+
 set-option -g renumber-windows on
 
+# This allows indent-blankline to have working underline/scope... nvm i dont think i need it
+# set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m' 
+
 # config
-set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-kitty" # I needed this to make indent-blankline work
 
 # change prefix
 set -g prefix C-a
@@ -23,7 +26,7 @@ bind _ split-window -v
 
 # easy reload of config
 unbind r 
-bind r source-file ~/.config/tmux/tmux.conf
+bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded!"
 
 # easy resizing of panes
 bind -r j resize-pane -D 5

@@ -14,6 +14,7 @@ require("shahbaz.nvim-tree")
 require("shahbaz.telescope")
 require("shahbaz.alpha")
 require("shahbaz.whichkey")
+require("shahbaz.marks")
 
 -- Code enhancements
 require("shahbaz.treesitter")

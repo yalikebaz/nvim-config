@@ -59,7 +59,7 @@ dashboard.section.header.val = {
 }
 dashboard.section.buttons.val = {
     -- For your own icons: https://www.nerdfonts.com/cheat-sheet
-    dashboard.button("f", "󰱼  Find file", ":Telescope find_files <CR>"),
+    dashboard.button("f", "󰱼  Find file", ":lua require('telescope.builtin').find_files({no_ignore=true})<cr>"),
     dashboard.button("e", "  Open Nvim Tree", "<cmd>NvimTreeToggle<cr>"),
     -- dashboard.button("e", "פּ  Open file explorer", "<cmd>Neotree toggle<cr>"),
     -- dashboard.button("m", "  Bookmarks", ":Telescope vim_bookmarks all<CR>"),

@@ -82,6 +82,7 @@ local opts = {
 
 local mappings = {
     --  INFO: Don't use purely tab for a mapping, as it actually gets interpreted as <C-i> under the hood
+    --  TODO: Add mappings for chentoast/marks plugin, and learn about it's bookmarks feature
     ["a"] = { "<cmd>:AerialToggle<cr>", "Toggle aerial" },
     ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
@@ -125,7 +126,7 @@ local mappings = {
         f = {
             -- "<cmd>Telescope find_files<cr>",
             -- ":lua require('telescope.builtin').find_files(require('telescope.themes').get_cursor())<cr>",
-            ":lua require('telescope.builtin').find_files()<cr>",
+            ":lua require('telescope.builtin').find_files({no_ignore=true})<cr>",
             "Find files",
         },
         -- F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },

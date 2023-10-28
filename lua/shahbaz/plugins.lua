@@ -66,6 +66,7 @@ return packer.startup(function(use)
 
     -- Navigation --
     use 'itchyny/vim-qfedit' -- Allows you to edit the loclist/qf list
+    use 'chentoast/marks.nvim' -- Better marks in nvim
     use 'rgroli/other.nvim'
     use 'mbbill/undotree'
     use {

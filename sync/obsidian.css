@@ -1,16 +1,20 @@
 /* I chose this to match the theme Things */
 
 .cm-s-obsidian span.cm-inline-code {
-    color: #FD9C73;
-
+    /* color: #FD9C73; */
+    /* color: #EA85A5; */
+    color: #00E5CB;
 }
 
 .cm-header-1, .markdown-preview-view h1 {
-    color: #48B632;
+    /* color: #48B632; */
+    /* color: #9849B5; */
+    color: #EAB237; 
 }
 
 .cm-header-2, .markdown-preview-view h2 {
-    color: #D7C225;
+    color: #C07FDC;
+    /* color: #D5630F;  */
 }
 
 .cm-cursorLayer {

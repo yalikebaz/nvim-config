@@ -1,3 +1,4 @@
+-- TODO: this needs to be update to use lazy
 -- In order to use this test config. In the terminal type `nvim -u test_config.lua`
 
 
@@ -60,6 +61,11 @@ packer.startup(function()
 
     -- TEST PLUGINS HERE
     use("nvim-lua/plenary.nvim")               -- Useful lua functions used by lots of plugins
+
+    use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.5',
+      requires = { {'nvim-lua/plenary.nvim'} }
+    }
 
     -- END TEST PLUGINS
 

@@ -9,7 +9,8 @@ zstyle ':vcs_info:git:*' formats '(%b)'
 setopt PROMPT_SUBST
 #PROMPT='%n ${PWD/#$HOME/~} %F{green}%1 ${vcs_info_msg_0_}%F{yellow} > %f'
 # PROMPT='[%D{%f/%m/%y}|%D{%L:%M:%S}] %n %F{yellow}[%2d] %F{green}%1 ${vcs_info_msg_0_}%F{yellow} > %f'
-PROMPT='%D{%f/%m}|%D{%T} %F{yellow}[%2d] %F{green}%1 ${vcs_info_msg_0_}%F{yellow} > %f'
+# PROMPT='%D{%f/%m}|%D{%T} %F{yellow}[%2d] %F{green}%1 ${vcs_info_msg_0_}%F{yellow} > %f'
+PROMPT='%D{%m/%f}|%D{%T} %F{yellow}[%2d] %F{green}%1 ${vcs_info_msg_0_}%F{yellow} > %f'
 
 # -------
 # ALIASES
